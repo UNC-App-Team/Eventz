@@ -11,7 +11,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // max nabokow sucks
     // beliz yilmaz sucks
     // theo steiner sucks
 
