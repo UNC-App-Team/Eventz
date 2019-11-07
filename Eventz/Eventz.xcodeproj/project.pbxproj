@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383BD82A2373CBBA002A2715 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BD8292373CBBA002A2715 /* LoginViewController.swift */; };
 		50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2C92373C1F5002985DA /* AppDelegate.swift */; };
 		50F0D2CC2373C1F5002985DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2CB2373C1F5002985DA /* SceneDelegate.swift */; };
 		50F0D2CE2373C1F5002985DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2CD2373C1F5002985DA /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		383BD8292373CBBA002A2715 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		50F0D2C62373C1F5002985DA /* Eventz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F0D2C92373C1F5002985DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50F0D2CB2373C1F5002985DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				50F0D2D22373C1F8002985DA /* Assets.xcassets */,
 				50F0D2D42373C1F8002985DA /* LaunchScreen.storyboard */,
 				50F0D2D72373C1F8002985DA /* Info.plist */,
+				383BD8292373CBBA002A2715 /* LoginViewController.swift */,
 			);
 			path = Eventz;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383BD82A2373CBBA002A2715 /* LoginViewController.swift in Sources */,
 				50F0D2CE2373C1F5002985DA /* ViewController.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				50F0D2CC2373C1F5002985DA /* SceneDelegate.swift in Sources */,
