@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		50F0D2D32373C1F8002985DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50F0D2D22373C1F8002985DA /* Assets.xcassets */; };
 		50F0D2D62373C1F8002985DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F0D2D42373C1F8002985DA /* LaunchScreen.storyboard */; };
 		50F0D2DE2373CBB1002985DA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2DD2373CBB1002985DA /* TestViewController.swift */; };
+		50F0D2E02373DAC8002985DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2DF2373DAC8002985DA /* Constants.swift */; };
+		50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2E12373DEF6002985DA /* Extensions.swift */; };
 		84D27644C3FECDF8C79D1D1A /* Pods_Eventz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		50F0D2D52373C1F8002985DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50F0D2D72373C1F8002985DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F0D2DD2373CBB1002985DA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		50F0D2DF2373DAC8002985DA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		50F0D2E12373DEF6002985DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.release.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.release.xcconfig"; sourceTree = "<group>"; };
 		DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +80,8 @@
 				50F0D2D72373C1F8002985DA /* Info.plist */,
 				383BD8292373CBBA002A2715 /* LoginViewController.swift */,
 				50F0D2DD2373CBB1002985DA /* TestViewController.swift */,
+				50F0D2DF2373DAC8002985DA /* Constants.swift */,
+				50F0D2E12373DEF6002985DA /* Extensions.swift */,
 			);
 			path = Eventz;
 			sourceTree = "<group>";
@@ -86,7 +92,6 @@
 				44041ECFF40892D6542CF86B /* Pods-Eventz.debug.xcconfig */,
 				6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -218,6 +223,8 @@
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				50F0D2DE2373CBB1002985DA /* TestViewController.swift in Sources */,
 				50F0D2CC2373C1F5002985DA /* SceneDelegate.swift in Sources */,
+				50F0D2E02373DAC8002985DA /* Constants.swift in Sources */,
+				50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
