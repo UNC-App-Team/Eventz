@@ -7,5 +7,8 @@ target 'Eventz' do
 
   # Pods for Eventz
   pod 'LBTATools'
+  pod 'JGProgressHUD'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
 
 end
