@@ -12,7 +12,19 @@ struct User {
     
     var firstName: String
     var lastName: String
+    var age: Int?
+    var hometown: String?
     
-    var profilePicURL: String
+    var profilePicURL: String?
+    var interests: [String?]?
+    
+    init(firstName: String, lastName: String, age: Int? = -1, hometown: String? = "Unknown", profilePicURL: String?, interests: [String?]?) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.age = age
+        self.hometown = hometown
+        self.profilePicURL = profilePicURL
+        self.interests = interests
+    }
     
 }
