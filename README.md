@@ -1,6 +1,3 @@
-# Campus-Events
+# Eventz
 
-Link to planning document: https://docs.google.com/document/d/1ZT08HpNKiMumwXU_HxJFy6lesB9TnYI9QtdNTAr6rDw/edit?usp=sharing
-
-Meeting Schedule:
-https://www.when2meet.com/?8326072-tz7Wo
+An app that makes it easier for clubs/organizations to upload their events to one place and all students can find an up-to-date catalog of events that can be sorted, tagged, filtered and searched through.
