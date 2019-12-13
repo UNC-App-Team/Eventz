@@ -4,6 +4,16 @@
    <FileRef
       location = "group:Eventz.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Pods"
+      name = "Pods">
+      <FileRef
+         location = "group:Pods/Target Support Files/Pods-Eventz/Pods-Eventz.debug.xcconfig">
+      </FileRef>
+      <FileRef
+         location = "group:Pods/Target Support Files/Pods-Eventz/Pods-Eventz.release.xcconfig">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

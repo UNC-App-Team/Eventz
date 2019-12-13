@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BD8292373CBBA002A2715 /* LoginVC.swift */; };
 		5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50701519239CE8C3006C7023 /* HomeVC.swift */; };
+		507BE0DA23A366FE009B7B72 /* TabC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0D923A366FE009B7B72 /* TabC.swift */; };
+		507BE0DC23A3685A009B7B72 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0DB23A3685A009B7B72 /* ProfileVC.swift */; };
+		507BE0DE23A36FD9009B7B72 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0DD23A36FD9009B7B72 /* EventCell.swift */; };
+		507BE0E023A372E4009B7B72 /* EventCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0DF23A372E4009B7B72 /* EventCellView.swift */; };
 		50A2EE12239F736D00DFF65D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50A2EE11239F736D00DFF65D /* GoogleService-Info.plist */; };
 		50C0204B237DEBAB004CE4FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204A237DEBAB004CE4FA /* Event.swift */; };
 		50C0204D237DEBB5004CE4FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204C237DEBB5004CE4FA /* User.swift */; };
@@ -26,6 +30,10 @@
 		383BD8292373CBBA002A2715 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		44041ECFF40892D6542CF86B /* Pods-Eventz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.debug.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.debug.xcconfig"; sourceTree = "<group>"; };
 		50701519239CE8C3006C7023 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		507BE0D923A366FE009B7B72 /* TabC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabC.swift; sourceTree = "<group>"; };
+		507BE0DB23A3685A009B7B72 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		507BE0DD23A36FD9009B7B72 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		507BE0DF23A372E4009B7B72 /* EventCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellView.swift; sourceTree = "<group>"; };
 		50A2EE11239F736D00DFF65D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50C0204A237DEBAB004CE4FA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		50C0204C237DEBB5004CE4FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -66,6 +74,8 @@
 		50C02047237DE7C9004CE4FA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				507BE0DD23A36FD9009B7B72 /* EventCell.swift */,
+				507BE0DF23A372E4009B7B72 /* EventCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -73,8 +83,10 @@
 		50C02048237DE7E1004CE4FA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				507BE0D923A366FE009B7B72 /* TabC.swift */,
 				383BD8292373CBBA002A2715 /* LoginVC.swift */,
 				50701519239CE8C3006C7023 /* HomeVC.swift */,
+				507BE0DB23A3685A009B7B72 /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,10 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507BE0DC23A3685A009B7B72 /* ProfileVC.swift in Sources */,
+				507BE0DA23A366FE009B7B72 /* TabC.swift in Sources */,
 				383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */,
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				50F0D2CC2373C1F5002985DA /* SceneDelegate.swift in Sources */,
+				507BE0DE23A36FD9009B7B72 /* EventCell.swift in Sources */,
+				507BE0E023A372E4009B7B72 /* EventCellView.swift in Sources */,
 				50F0D2E02373DAC8002985DA /* Constants.swift in Sources */,
 				50C0204B237DEBAB004CE4FA /* Event.swift in Sources */,
 				50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */,
