@@ -16,7 +16,7 @@ struct Event {
     var location: String
     
     // ???
-    var tags: [String]
-    var attendeeIds: [String]
+//    var tags: [String]
+//    var attendeeIds: [String]
     
 }

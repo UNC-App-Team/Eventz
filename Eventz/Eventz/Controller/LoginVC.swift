@@ -11,14 +11,16 @@ import LBTATools
 
 class LoginViewController: UIViewController {
     
-    let backgroundImage: UIImageView = {
+    // MARK: - Properties
+    
+    fileprivate let backgroundImage: UIImageView = {
         let v = UIImageView(image: #imageLiteral(resourceName: "oldWell"))
         v.alpha = 0.5
         v.contentMode = .top
         return v
     }()
     
-    let loginLabel: UILabel = {
+    fileprivate let loginLabel: UILabel = {
         let labelText = NSMutableAttributedString()
         let firstString = NSMutableAttributedString(string: "Welcome to\n", attributes: [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 36, weight: .bold),
@@ -37,7 +39,7 @@ class LoginViewController: UIViewController {
         return l
     }()
     
-    let emailTextField: UITextField = {
+    fileprivate let emailTextField: UITextField = {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : CAROLINA_BLUE, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)])
         tf.backgroundColor = .white
@@ -50,7 +52,7 @@ class LoginViewController: UIViewController {
         return tf
     }()
     
-    let passwordTextField: UITextField = {
+    fileprivate let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : CAROLINA_BLUE, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)])
         tf.backgroundColor = .white
@@ -62,23 +64,25 @@ class LoginViewController: UIViewController {
         return tf
     }()
     
-    let forgotPassWordButton: UIButton = {
+    fileprivate let forgotPassWordButton: UIButton = {
         let b = UIButton(title: "Forgot Password?", titleColor: .white, font: .systemFont(ofSize: 18, weight: .semibold))
         return b
     }()
     
-    let loginButton: UIButton = {
+    fileprivate let loginButton: UIButton = {
         let b = UIButton(title: "Log in", titleColor: .white, font: .systemFont(ofSize: 20, weight: .bold), backgroundColor: CAROLINA_BLUE, target: self, action: nil)
         b.layer.cornerRadius = 16
         b.addTarget(self, action: #selector(showHomeViewController), for: .touchUpInside)
         return b
     }()
     
-    let signupButton: UIButton = {
+    fileprivate let signupButton: UIButton = {
         let b = UIButton(title: "Sign up", titleColor: CAROLINA_BLUE, font: .systemFont(ofSize: 20, weight: .semibold), backgroundColor: .white, target: self, action: nil)
         b.layer.cornerRadius = 16
         return b
     }()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,33 +92,29 @@ class LoginViewController: UIViewController {
         
     }
     
-    @objc func showHomeViewController() {
-        dismiss(animated: true)
-    }
+    // MARK: - UI Setup
     
     func setupUI() {
         view.backgroundColor = .darkGray
-        
-        
-        view.addSubview(backgroundImage)
-        view.addSubview(loginLabel)
-        view.addSubview(emailTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(forgotPassWordButton)
     }
     
     func setupLayout() {
         
+        view.addSubview(backgroundImage)
         backgroundImage.fillSuperview()
         
+        view.addSubview(loginLabel)
         loginLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 120, left: 24, bottom: 0, right: 24))
         
+        view.addSubview(emailTextField)
         emailTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         emailTextField.anchor(top: loginLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 96, left: 24, bottom: 0, right: 24))
         
+        view.addSubview(passwordTextField)
         passwordTextField.anchor(top: emailTextField.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 24, bottom: 0, right: 24))
         passwordTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
+        view.addSubview(forgotPassWordButton)
         forgotPassWordButton.anchor(top: passwordTextField.bottomAnchor, leading: nil, bottom: nil, trailing: passwordTextField.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 8))
         
         let buttonStackView = UIStackView(arrangedSubviews: [signupButton, loginButton])
@@ -129,10 +129,17 @@ class LoginViewController: UIViewController {
         
     }
     
+    // MARK: - Selectors
+    
+    @objc func showHomeViewController() {
+        dismiss(animated: true)
+    }
+    
+    // MARK: - Helper Functions
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
 }
 
 

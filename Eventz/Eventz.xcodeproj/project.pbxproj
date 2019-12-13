@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BD8292373CBBA002A2715 /* LoginVC.swift */; };
 		5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50701519239CE8C3006C7023 /* HomeVC.swift */; };
+		50A2EE12239F736D00DFF65D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50A2EE11239F736D00DFF65D /* GoogleService-Info.plist */; };
 		50C0204B237DEBAB004CE4FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204A237DEBAB004CE4FA /* Event.swift */; };
 		50C0204D237DEBB5004CE4FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204C237DEBB5004CE4FA /* User.swift */; };
 		50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2C92373C1F5002985DA /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 		383BD8292373CBBA002A2715 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		44041ECFF40892D6542CF86B /* Pods-Eventz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.debug.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.debug.xcconfig"; sourceTree = "<group>"; };
 		50701519239CE8C3006C7023 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		50A2EE11239F736D00DFF65D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50C0204A237DEBAB004CE4FA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		50C0204C237DEBB5004CE4FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		50F0D2C62373C1F5002985DA /* Eventz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				50F0D2E12373DEF6002985DA /* Extensions.swift */,
 				50F0D2D22373C1F8002985DA /* Assets.xcassets */,
 				50F0D2D72373C1F8002985DA /* Info.plist */,
+				50A2EE11239F736D00DFF65D /* GoogleService-Info.plist */,
 				50F0D2CF2373C1F6002985DA /* Main.storyboard */,
 				50F0D2D42373C1F8002985DA /* LaunchScreen.storyboard */,
 			);
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50F0D2D62373C1F8002985DA /* LaunchScreen.storyboard in Resources */,
+				50A2EE12239F736D00DFF65D /* GoogleService-Info.plist in Resources */,
 				50F0D2D32373C1F8002985DA /* Assets.xcassets in Resources */,
 				50F0D2D12373C1F6002985DA /* Main.storyboard in Resources */,
 			);

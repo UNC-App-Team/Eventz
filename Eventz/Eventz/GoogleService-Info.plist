@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>737910408562-t7qqv27nabaum4h6ln8nhbj22v1uo0nh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.737910408562-t7qqv27nabaum4h6ln8nhbj22v1uo0nh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDilXeYDPyfRgQPLSfN-Wi12AE27ZkJ-gc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>737910408562</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mnabokow.Eventz</string>
+	<key>PROJECT_ID</key>
+	<string>uncappteam-eventz</string>
+	<key>STORAGE_BUCKET</key>
+	<string>uncappteam-eventz.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:737910408562:ios:d1e3689b276cb4d46109eb</string>
+	<key>DATABASE_URL</key>
+	<string>https://uncappteam-eventz.firebaseio.com</string>
+</dict>
+</plist>
