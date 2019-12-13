@@ -21,6 +21,10 @@ class EventCell: UITableViewCell {
         setupLayout()
     }
     
+    func configure(event: Event) {
+        eventCellView.configure(event: event)
+    }
+    
     // MARK: - UI Setup
     
     fileprivate func setupUI() {

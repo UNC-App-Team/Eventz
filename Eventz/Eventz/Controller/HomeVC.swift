@@ -9,16 +9,25 @@
 import UIKit
 import LBTATools
 
+let eventCellIdentifier = "eventCell"
+
 class HomeViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - UI Elements
     
     fileprivate let tableView: UITableView = {
         let tv = UITableView()
         tv.separatorStyle = .none
         tv.backgroundColor = .white
+        tv.register(EventCell.self, forCellReuseIdentifier: eventCellIdentifier)
         return tv
     }()
+    
+    // MARK: - Properties
+    
+    var events = [
+        Event(title: "Bowling", description: "let's roll", date: Date(), location: "Fetzer Gym", imageURL: "bowling")
+    ]
     
     var loggedIn = false
     
@@ -45,10 +54,11 @@ class HomeViewController: UIViewController {
     // MARK: - UI Setup
     
     fileprivate func setupUI() {
-        view.backgroundColor = .green
         title = "Feed"
+        
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = .lightGray
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.barTintColor = .white
     }
     
     fileprivate func setupLayout() {
@@ -61,11 +71,15 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return EventCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: eventCellIdentifier, for: indexPath) as? EventCell else { return UITableViewCell() }
+        
+        cell.configure(event: events[indexPath.row])
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

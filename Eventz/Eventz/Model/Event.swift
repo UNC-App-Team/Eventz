@@ -14,6 +14,7 @@ struct Event {
     var description: String
     var date: Date
     var location: String
+    var imageURL: String
     
     // ???
 //    var tags: [String]
