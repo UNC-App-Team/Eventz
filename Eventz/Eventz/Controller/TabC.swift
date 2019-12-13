@@ -10,31 +10,32 @@ import UIKit
 
 class TabController: UITabBarController {
     
+    fileprivate let homeVC: UINavigationController = {
+        let vc = UINavigationController(rootViewController: HomeViewController())
+        vc.tabBarItem.title = "Home"
+        return vc
+    }()
+    
+    fileprivate let profileVC: ProfileViewController = {
+        let vc = ProfileViewController()
+        vc.tabBarItem.title = "Profile"
+        return vc
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.barTintColor = .blue
+        tabBar.barTintColor = .white
         setupTabBar()
     }
     
     // MARK: - Helper Functions
     
     fileprivate func setupTabBar() {
-        
-        let homeVC = UINavigationController(rootViewController: HomeViewController())
-        homeVC.tabBarItem.title = "Home"
-        // homeVC.tabBarItem.image =
-        // homeVC.tabBarItem.selectedImage =
-        
-        let profileVC = ProfileViewController()
-        profileVC.tabBarItem.title = "Profile"
-        // profileVC.tabBarItem.image =
-        // profileVC.tabBarItem.selectedImage =
-        
+
         viewControllers = [homeVC, profileVC]
         
     }
-    
 }

@@ -33,7 +33,7 @@ class EventCellView: UIView {
         let l = UILabel()
         l.text = "Category"
         l.textColor = .white
-        l.font = .systemFont(ofSize: 16, weight: .medium)
+        l.font = .systemFont(ofSize: 14, weight: .medium)
         l.numberOfLines = 1
         l.textAlignment = .left
         return l
@@ -51,13 +51,12 @@ class EventCellView: UIView {
         
         backgroundImage.image = UIImage(named: event.imageURL)
         titleLabel.text = event.title
-        categoryLabel.text = event.description
+        categoryLabel.text = event.category
     }
     
     // MARK: - UI Setup
     
     fileprivate func setupUI() {
-        backgroundColor = .systemGreen
         layer.cornerRadius = 12
         clipsToBounds = true
     }

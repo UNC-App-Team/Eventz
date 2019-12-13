@@ -11,6 +11,7 @@ import Foundation
 struct Event {
     
     var title: String
+    var category: String
     var description: String
     var date: Date
     var location: String

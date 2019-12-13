@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     
     fileprivate let tableView: UITableView = {
         let tv = UITableView()
+        tv.allowsSelection = false
         tv.separatorStyle = .none
         tv.backgroundColor = .white
         tv.register(EventCell.self, forCellReuseIdentifier: eventCellIdentifier)
@@ -26,7 +27,7 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     
     var events = [
-        Event(title: "Bowling", description: "let's roll", date: Date(), location: "Fetzer Gym", imageURL: "bowling")
+        Event(title: "Bowling", category: "let's roll", description: "", date: Date(), location: "Fetzer Gym", imageURL: "bowling")
     ]
     
     var loggedIn = false
