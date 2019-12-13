@@ -17,15 +17,22 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .green
-        
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+        title = "Feed"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         if (!loggedIn) {
-            present(LoginViewController(), animated: true)
+            let vc = LoginViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: false)
         }
     }
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//
+//        if (!loggedIn) {
+//            present(LoginViewController(), animated: true)
+//        }
+//    }
     
 }

@@ -89,7 +89,6 @@ class LoginViewController: UIViewController {
         
         setupUI()
         setupLayout()
-        
     }
     
     // MARK: - UI Setup
