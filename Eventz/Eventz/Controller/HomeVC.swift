@@ -15,6 +15,15 @@ class HomeViewController: UIViewController {
     
     // MARK: - UI Elements
     
+    fileprivate let noEventsLabel: UILabel = {
+        let l = UILabel()
+        l.text = "No Events here"
+        l.numberOfLines = 0
+        l.textAlignment = .center
+        l.textColor = .darkGray
+        return l
+    }()
+    
     fileprivate let tableView: UITableView = {
         let tv = UITableView()
         tv.allowsSelection = false
@@ -26,8 +35,9 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    var events = [
-        Event(title: "Bowling", category: "let's roll", description: "", date: Date(), location: "Fetzer Gym", imageURL: "bowling")
+    var events: [Event] = [
+        Event(title: "Bowling", category: "Sports", description: "", date: Date(), location: "Fetzer Gym", imageURL: "bowling"),
+        Event(title: "Concert", category: "Music", description: "", date: Date(), location: "Great Hall", imageURL: "concert")
     ]
     
     var loggedIn = false
@@ -55,6 +65,7 @@ class HomeViewController: UIViewController {
     // MARK: - UI Setup
     
     fileprivate func setupUI() {
+        view.backgroundColor = .white
         title = "Feed"
         
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -63,8 +74,15 @@ class HomeViewController: UIViewController {
     }
     
     fileprivate func setupLayout() {
-        view.addSubview(tableView)
-               tableView.fillSuperview()
+        
+        if (events.isEmpty) {
+            view.addSubview(noEventsLabel)
+            noEventsLabel.centerInSuperview()
+        } else {
+            view.addSubview(tableView)
+            tableView.fillSuperview()
+            
+        }
     }
     
 }
