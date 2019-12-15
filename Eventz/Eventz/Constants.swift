@@ -9,4 +9,4 @@
 import Foundation
 import UIKit
 
-var CAROLINA_BLUE: UIColor = #colorLiteral(red: 0.2941176471, green: 0.6117647059, blue: 0.8274509804, alpha: 1)
+

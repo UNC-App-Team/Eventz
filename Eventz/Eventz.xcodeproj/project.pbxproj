@@ -13,6 +13,9 @@
 		507BE0DC23A3685A009B7B72 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0DB23A3685A009B7B72 /* ProfileVC.swift */; };
 		507BE0DE23A36FD9009B7B72 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0DD23A36FD9009B7B72 /* EventCell.swift */; };
 		507BE0E023A372E4009B7B72 /* EventCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0DF23A372E4009B7B72 /* EventCellView.swift */; };
+		507BE0E223A57D57009B7B72 /* Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E123A57D56009B7B72 /* Dump.swift */; };
+		507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E523A5890F009B7B72 /* WelcomeVC.swift */; };
+		507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */; };
 		50A2EE12239F736D00DFF65D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50A2EE11239F736D00DFF65D /* GoogleService-Info.plist */; };
 		50C0204B237DEBAB004CE4FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204A237DEBAB004CE4FA /* Event.swift */; };
 		50C0204D237DEBB5004CE4FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204C237DEBB5004CE4FA /* User.swift */; };
@@ -34,6 +37,9 @@
 		507BE0DB23A3685A009B7B72 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		507BE0DD23A36FD9009B7B72 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		507BE0DF23A372E4009B7B72 /* EventCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellView.swift; sourceTree = "<group>"; };
+		507BE0E123A57D56009B7B72 /* Dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dump.swift; path = Controller/Dump.swift; sourceTree = "<group>"; };
+		507BE0E523A5890F009B7B72 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCell.swift; sourceTree = "<group>"; };
 		50A2EE11239F736D00DFF65D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50C0204A237DEBAB004CE4FA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		50C0204C237DEBB5004CE4FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 			children = (
 				507BE0DD23A36FD9009B7B72 /* EventCell.swift */,
 				507BE0DF23A372E4009B7B72 /* EventCellView.swift */,
+				507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -87,6 +94,7 @@
 				383BD8292373CBBA002A2715 /* LoginVC.swift */,
 				50701519239CE8C3006C7023 /* HomeVC.swift */,
 				507BE0DB23A3685A009B7B72 /* ProfileVC.swift */,
+				507BE0E523A5890F009B7B72 /* WelcomeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 		50F0D2C82373C1F5002985DA /* Eventz */ = {
 			isa = PBXGroup;
 			children = (
+				507BE0E123A57D56009B7B72 /* Dump.swift */,
 				50F0D2C92373C1F5002985DA /* AppDelegate.swift */,
 				50F0D2CB2373C1F5002985DA /* SceneDelegate.swift */,
 				50C02046237DE7BE004CE4FA /* Model */,
@@ -274,12 +283,15 @@
 				383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */,
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
+				507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */,
+				507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */,
 				50F0D2CC2373C1F5002985DA /* SceneDelegate.swift in Sources */,
 				507BE0DE23A36FD9009B7B72 /* EventCell.swift in Sources */,
 				507BE0E023A372E4009B7B72 /* EventCellView.swift in Sources */,
 				50F0D2E02373DAC8002985DA /* Constants.swift in Sources */,
 				50C0204B237DEBAB004CE4FA /* Event.swift in Sources */,
 				50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */,
+				507BE0E223A57D57009B7B72 /* Dump.swift in Sources */,
 				50C0204D237DEBB5004CE4FA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

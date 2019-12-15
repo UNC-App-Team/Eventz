@@ -16,5 +16,4 @@ class ProfileViewController: UIViewController {
         title = "Profile"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
 }

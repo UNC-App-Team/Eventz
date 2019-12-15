@@ -1,5 +1,5 @@
 //
-//  TabVC.swift
+//  TabC.swift
 //  Eventz
 //
 //  Created by Max Nabokow on 12/13/19.
@@ -36,6 +36,5 @@ class TabController: UITabBarController {
     fileprivate func setupTabBar() {
 
         viewControllers = [homeVC, profileVC]
-        
     }
 }

@@ -53,9 +53,16 @@ class HomeViewController: UIViewController {
         
         
         if (!loggedIn) {
-            let vc = LoginViewController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: false)
+            
+           let welcomeVC: UICollectionViewController = {
+                let layout = UICollectionViewFlowLayout()
+                layout.scrollDirection = .horizontal
+                let vc = WelcomeViewController(collectionViewLayout: layout)
+                vc.modalPresentationStyle = .fullScreen
+                return vc
+            }()
+            
+            present(welcomeVC, animated: false)
         }
         
         setupUI()
