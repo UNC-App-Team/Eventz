@@ -18,6 +18,7 @@ class WelcomeViewController: UICollectionViewController {
         return v
     }()
     
+    // makes the background image darker, and text more legible
     fileprivate let backgroundOverlay: UIView = {
         let v = UIView(backgroundColor: .black)
         v.alpha = 0.4
@@ -118,5 +119,4 @@ extension WelcomeViewController: WelcomePageCellDelegate {
     func handleGetStarted() {
         dismiss(animated: true, completion: nil)
     }
-
 }

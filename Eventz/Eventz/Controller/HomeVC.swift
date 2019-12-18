@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - UI Elements
     
+    // Label that displays when the table is empty
     fileprivate let noEventsLabel: UILabel = {
         let l = UILabel()
         l.text = "No Events here"
@@ -35,11 +36,13 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    // Dummy events, later we get this from Firestore
     var events: [Event] = [
         Event(title: "Bowling", category: "Sports", description: "", date: Date(), location: "Fetzer Gym", imageURL: "bowling"),
         Event(title: "Concert", category: "Music", description: "", date: Date(), location: "Great Hall", imageURL: "concert")
     ]
     
+    // Dummy variable, later we get this from Firebase Authentication
     var loggedIn = false
     
     
@@ -52,6 +55,9 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         
         
+        // Present LoginVC if user is not logged in
+        // The LoginVC presents Onboarding, if opening app for the first time
+            // That doesn't quite work yet, so I am just presenting onboarding here for now
         if (!loggedIn) {
             
             let layout = UICollectionViewFlowLayout()
@@ -79,6 +85,7 @@ class HomeViewController: UIViewController {
     
     fileprivate func setupLayout() {
         
+        // Display noEventsLabel if no events in feed
         if (events.isEmpty) {
             view.addSubview(noEventsLabel)
             noEventsLabel.centerInSuperview()

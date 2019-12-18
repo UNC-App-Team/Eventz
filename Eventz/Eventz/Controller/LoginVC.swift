@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
         setupUI()
         setupLayout()
         
+        // Doesn't work, can't present on a presented VC :(
         if !openingForTheFirstTime {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
