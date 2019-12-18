@@ -58,14 +58,18 @@ class HomeViewController: UIViewController {
         // Present LoginVC if user is not logged in
         // The LoginVC presents Onboarding, if opening app for the first time
             // That doesn't quite work yet, so I am just presenting onboarding here for now
-        if (!loggedIn) {
-            
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .horizontal
-            let welcomeVC = WelcomeViewController(collectionViewLayout: layout)
-            welcomeVC.modalPresentationStyle = .fullScreen
-            present(welcomeVC, animated: false, completion: nil)
-        }
+//        if (!loggedIn) {
+//            
+//            let layout = UICollectionViewFlowLayout()
+//            layout.scrollDirection = .horizontal
+//            let welcomeVC = WelcomeViewController(collectionViewLayout: layout)
+//            welcomeVC.modalPresentationStyle = .fullScreen
+//            present(welcomeVC, animated: false, completion: nil)
+//        }
+        
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        navigationController?.present(loginVC, animated: false, completion: nil)
         
         setupUI()
         setupLayout()
