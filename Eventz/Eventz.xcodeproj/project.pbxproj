@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383BD8292373CBBA002A2715 /* LoginVC.swift */; };
+		5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056FE5823A5FA4E0000EA2E /* WelcomePage.swift */; };
+		5056FE5C23A605F00000EA2E /* WelcomeVC +CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056FE5B23A605F00000EA2E /* WelcomeVC +CollectionView.swift */; };
+		5056FE5E23A6318C0000EA2E /* GetStartedPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056FE5D23A6318B0000EA2E /* GetStartedPageCell.swift */; };
 		5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50701519239CE8C3006C7023 /* HomeVC.swift */; };
 		507BE0DA23A366FE009B7B72 /* TabC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0D923A366FE009B7B72 /* TabC.swift */; };
 		507BE0DC23A3685A009B7B72 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0DB23A3685A009B7B72 /* ProfileVC.swift */; };
@@ -32,6 +35,9 @@
 /* Begin PBXFileReference section */
 		383BD8292373CBBA002A2715 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		44041ECFF40892D6542CF86B /* Pods-Eventz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.debug.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.debug.xcconfig"; sourceTree = "<group>"; };
+		5056FE5823A5FA4E0000EA2E /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
+		5056FE5B23A605F00000EA2E /* WelcomeVC +CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeVC +CollectionView.swift"; sourceTree = "<group>"; };
+		5056FE5D23A6318B0000EA2E /* GetStartedPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetStartedPageCell.swift; path = Eventz/Model/GetStartedPageCell.swift; sourceTree = SOURCE_ROOT; };
 		50701519239CE8C3006C7023 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		507BE0D923A366FE009B7B72 /* TabC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabC.swift; sourceTree = "<group>"; };
 		507BE0DB23A3685A009B7B72 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -68,11 +74,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5056FE5A23A605C00000EA2E /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				507BE0E523A5890F009B7B72 /* WelcomeVC.swift */,
+				5056FE5B23A605F00000EA2E /* WelcomeVC +CollectionView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		50C02046237DE7BE004CE4FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				50C0204A237DEBAB004CE4FA /* Event.swift */,
 				50C0204C237DEBB5004CE4FA /* User.swift */,
+				5056FE5823A5FA4E0000EA2E /* WelcomePage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -83,6 +99,7 @@
 				507BE0DD23A36FD9009B7B72 /* EventCell.swift */,
 				507BE0DF23A372E4009B7B72 /* EventCellView.swift */,
 				507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */,
+				5056FE5D23A6318B0000EA2E /* GetStartedPageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,7 +111,7 @@
 				383BD8292373CBBA002A2715 /* LoginVC.swift */,
 				50701519239CE8C3006C7023 /* HomeVC.swift */,
 				507BE0DB23A3685A009B7B72 /* ProfileVC.swift */,
-				507BE0E523A5890F009B7B72 /* WelcomeVC.swift */,
+				5056FE5A23A605C00000EA2E /* Welcome */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,8 +300,10 @@
 				383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */,
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
+				5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */,
 				507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */,
 				507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */,
+				5056FE5E23A6318C0000EA2E /* GetStartedPageCell.swift in Sources */,
 				50F0D2CC2373C1F5002985DA /* SceneDelegate.swift in Sources */,
 				507BE0DE23A36FD9009B7B72 /* EventCell.swift in Sources */,
 				507BE0E023A372E4009B7B72 /* EventCellView.swift in Sources */,
@@ -292,6 +311,7 @@
 				50C0204B237DEBAB004CE4FA /* Event.swift in Sources */,
 				50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */,
 				507BE0E223A57D57009B7B72 /* Dump.swift in Sources */,
+				5056FE5C23A605F00000EA2E /* WelcomeVC +CollectionView.swift in Sources */,
 				50C0204D237DEBB5004CE4FA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,18 +8,18 @@
 
 // MARK: - LoginVC TextFields + Buttons
 
-// fileprivate let emailTextField: UITextField = {
-//     let tf = UITextField()
-//     tf.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.carolinaBlue, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)])
-//     tf.backgroundColor = .white
-//     tf.textColor = .black
-//     tf.layer.cornerRadius = 16
-//     tf.addLeftInset(height: 44)
-//     tf.keyboardType = .emailAddress
-//     tf.autocorrectionType = .no
-//     tf.autocapitalizationType = .none
-//     return tf
-// }()
+//fileprivate let emailTextField: UITextField = {
+//    let tf = UITextField()
+//    tf.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.carolinaBlue, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)])
+//    tf.backgroundColor = .white
+//    tf.textColor = .black
+//    tf.layer.cornerRadius = 16
+//    tf.addLeftInset(height: 44)
+//    tf.keyboardType = .emailAddress
+//    tf.autocorrectionType = .no
+//    tf.autocapitalizationType = .none
+//    return tf
+//}()
 //
 //fileprivate let passwordTextField: UITextField = {
 //    let tf = UITextField()

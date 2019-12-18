@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundCorners()
         view.backgroundColor = .orange
         title = "Profile"
         navigationController?.navigationBar.prefersLargeTitles = true

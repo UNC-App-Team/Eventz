@@ -6,7 +6,6 @@
 //  Copyright © 2019 Maximilian Nabokow. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension UITextField {
@@ -24,5 +23,15 @@ extension UITextField {
 extension UIColor {
     
     static var carolinaBlue = #colorLiteral(red: 0.2941176471, green: 0.6117647059, blue: 0.8274509804, alpha: 1)
+}
+
+
+extension UIViewController {
+    
+    func roundCorners() {
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+    }
+    
 }
 

@@ -11,6 +11,8 @@ import LBTATools
 
 class LoginViewController: UIViewController {
     
+    let openingForTheFirstTime = true
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -18,6 +20,14 @@ class LoginViewController: UIViewController {
         
         setupUI()
         setupLayout()
+        
+        if !openingForTheFirstTime {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            let welcomeVC = WelcomeViewController(collectionViewLayout: layout)
+            welcomeVC.modalPresentationStyle = .fullScreen
+            navigationController?.present(welcomeVC, animated: false, completion: nil)
+        }
     }
     
     // MARK: - UI Setup

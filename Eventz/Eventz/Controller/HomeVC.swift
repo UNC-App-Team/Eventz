@@ -54,15 +54,11 @@ class HomeViewController: UIViewController {
         
         if (!loggedIn) {
             
-           let welcomeVC: UICollectionViewController = {
-                let layout = UICollectionViewFlowLayout()
-                layout.scrollDirection = .horizontal
-                let vc = WelcomeViewController(collectionViewLayout: layout)
-                vc.modalPresentationStyle = .fullScreen
-                return vc
-            }()
-            
-            present(welcomeVC, animated: false)
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            let welcomeVC = WelcomeViewController(collectionViewLayout: layout)
+            welcomeVC.modalPresentationStyle = .fullScreen
+            present(welcomeVC, animated: false, completion: nil)
         }
         
         setupUI()
@@ -72,6 +68,7 @@ class HomeViewController: UIViewController {
     // MARK: - UI Setup
     
     fileprivate func setupUI() {
+        roundCorners()
         view.backgroundColor = .white
         title = "Feed"
         
