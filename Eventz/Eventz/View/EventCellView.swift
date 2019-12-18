@@ -20,10 +20,13 @@ class EventCellView: UIView {
     }()
     
     // makes the background image darker, and text more legible
-    fileprivate let backgroundOverlay: UIView = {
-       let v = UIView(backgroundColor: .black)
-       v.alpha = 0.1
-       return v
+    fileprivate let backgroundOverlay: CAGradientLayer = {
+        let l = CAGradientLayer()
+        l.colors = [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor, #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor]
+        l.locations = [0.0, 1.0]
+        l.startPoint = CGPoint(x: 0.0, y: 0.5)
+        l.endPoint = CGPoint(x: 0.5, y: 0.5)
+       return l
     }()
     
     fileprivate let titleLabel: UILabel = {
@@ -70,15 +73,18 @@ class EventCellView: UIView {
         clipsToBounds = true
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        backgroundOverlay.frame = bounds
+        layer.insertSublayer(backgroundOverlay, at: 1)
+    }
+    
     fileprivate func setupLayout() {
         
         addSubview(backgroundImage)
         backgroundImage.fillSuperview(padding: .init(top: 0, left: frame.width, bottom: 0, right: 0))
-        
-        addSubview(backgroundOverlay)
-        print(backgroundImage.frame.width)
-        backgroundOverlay.fillSuperview(padding: .init(top: 0, left: frame.width, bottom: 0, right: 0))
-        
+
         addSubview(titleLabel)
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 18, bottom: 0, right: 0))
         
