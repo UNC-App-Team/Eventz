@@ -19,6 +19,13 @@ class EventCellView: UIView {
         return iv
     }()
     
+    // makes the background image darker, and text more legible
+    fileprivate let backgroundOverlay: UIView = {
+       let v = UIView(backgroundColor: .black)
+       v.alpha = 0.1
+       return v
+    }()
+    
     fileprivate let titleLabel: UILabel = {
         let l = UILabel()
         l.text = "Event Name"
@@ -50,7 +57,9 @@ class EventCellView: UIView {
     func configure(event: Event) {
         
         backgroundImage.image = UIImage(named: event.imageURL)
+//        backgroundImage.image = #imageLiteral(resourceName: "concert")
         titleLabel.text = event.title
+        print("Title is:", event.title)
         categoryLabel.text = event.category
     }
     
@@ -62,8 +71,13 @@ class EventCellView: UIView {
     }
     
     fileprivate func setupLayout() {
+        
         addSubview(backgroundImage)
-        backgroundImage.fillSuperview()
+        backgroundImage.fillSuperview(padding: .init(top: 0, left: frame.width, bottom: 0, right: 0))
+        
+        addSubview(backgroundOverlay)
+        print(backgroundImage.frame.width)
+        backgroundOverlay.fillSuperview(padding: .init(top: 0, left: frame.width, bottom: 0, right: 0))
         
         addSubview(titleLabel)
         titleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 18, bottom: 0, right: 0))

@@ -10,9 +10,10 @@ import Foundation
 
 struct Event {
     
+    // MARK: - Properties
     var title: String
     var category: String
-    var description: String
+    var description: String?
     var date: Date
     var location: String
     var imageURL: String
@@ -20,5 +21,4 @@ struct Event {
     // ???
 //    var tags: [String]
 //    var attendeeIds: [String]
-    
 }

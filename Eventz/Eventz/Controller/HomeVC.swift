@@ -37,10 +37,8 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     
     // Dummy events, later we get this from Firestore
-    var events: [Event] = [
-        Event(title: "Bowling", category: "Sports", description: "", date: Date(), location: "Fetzer Gym", imageURL: "bowling"),
-        Event(title: "Concert", category: "Music", description: "", date: Date(), location: "Great Hall", imageURL: "concert")
-    ]
+    var events = [Event]()
+    var firestore = FirestoreService.shared
     
     // Dummy variable, later we get this from Firebase Authentication
     var loggedIn = false
@@ -56,8 +54,6 @@ class HomeViewController: UIViewController {
         
         
         // Present LoginVC if user is not logged in
-        // The LoginVC presents Onboarding, if opening app for the first time
-            // That doesn't quite work yet, so I am just presenting onboarding here for now
 //        if (!loggedIn) {
 //            
 //            let layout = UICollectionViewFlowLayout()
@@ -67,12 +63,17 @@ class HomeViewController: UIViewController {
 //            present(welcomeVC, animated: false, completion: nil)
 //        }
         
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        navigationController?.present(loginVC, animated: false, completion: nil)
+//        let loginVC = LoginViewController()
+//        loginVC.modalPresentationStyle = .fullScreen
+//        navigationController?.present(loginVC, animated: false, completion: nil)
         
-        setupUI()
-        setupLayout()
+        firestore.fetchEvents(completion: { (events) in
+            self.events = events
+            print("Events fetched.")
+            
+            self.setupUI()
+            self.setupLayout()
+        })
     }
     
     // MARK: - UI Setup
@@ -96,21 +97,21 @@ class HomeViewController: UIViewController {
         } else {
             view.addSubview(tableView)
             tableView.fillSuperview()
-            
         }
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numEvents =", events.count)
         return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: eventCellIdentifier, for: indexPath) as? EventCell else { return UITableViewCell() }
         
+        print("Title received is:", events[indexPath.row].title)
         cell.configure(event: events[indexPath.row])
         
         return cell

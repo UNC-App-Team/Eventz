@@ -10,6 +10,8 @@ import Foundation
 
 struct User {
     
+    // MARK: - Properties
+    
     var firstName: String
     var lastName: String
     var age: Int?
@@ -18,6 +20,7 @@ struct User {
 //    var profilePicURL: String?
 //    var interests: [String?]?
     
+    // MARK: - Init
     init(firstName: String, lastName: String, age: Int? = -1, hometown: String? = "Unknown", profilePicURL: String?, interests: [String?]?) {
         self.firstName = firstName
         self.lastName = lastName
@@ -26,5 +29,4 @@ struct User {
 //        self.profilePicURL = profilePicURL
 //        self.interests = interests
     }
-    
 }

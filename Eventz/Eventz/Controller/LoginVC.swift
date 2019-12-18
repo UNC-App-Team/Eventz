@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
     }()
 
     fileprivate let signupButton: UIButton = {
-        let b = UIButton(title: "Sign up", titleColor: UIColor.carolinaBlue, font: .systemFont(ofSize: 20, weight: .semibold), backgroundColor: .white, target: self, action: nil)
+        let b = UIButton(title: "No account yet? Sign up.", titleColor: UIColor.carolinaBlue, font: .systemFont(ofSize: 20, weight: .semibold), backgroundColor: .white, target: self, action: nil)
         b.layer.cornerRadius = 16
         return b
     }()
