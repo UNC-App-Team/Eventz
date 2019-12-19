@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - UI Elements
     
-    // Label that displays when the table is empty
+    // UILabel that displays if the table is empty
     fileprivate let noEventsLabel: UILabel = {
         let l = UILabel()
         l.text = "No Events here"
@@ -32,6 +32,13 @@ class HomeViewController: UIViewController {
         tv.backgroundColor = .white
         tv.register(EventCell.self, forCellReuseIdentifier: eventCellIdentifier)
         return tv
+    }()
+    
+    // lazy needed because it initialization needs to be able to access 'self'
+    fileprivate lazy var addEventButton: UIBarButtonItem = {
+        let b = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAddEvent))
+        b.tintColor = .systemOrange
+        return b
     }()
     
     // MARK: - Properties
@@ -63,17 +70,20 @@ class HomeViewController: UIViewController {
 //            present(welcomeVC, animated: false, completion: nil)
 //        }
         
-//        let loginVC = LoginViewController()
-//        loginVC.modalPresentationStyle = .fullScreen
-//        navigationController?.present(loginVC, animated: false, completion: nil)
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        navigationController?.present(loginVC, animated: false, completion: nil)
         
         firestore.fetchEvents(completion: { (events) in
             self.events = events
-            print("Events fetched.")
             
             self.setupUI()
             self.setupLayout()
         })
+    }
+    
+    @objc fileprivate func handleAddEvent() {
+        print("Add Event tapped")
     }
     
     // MARK: - UI Setup
@@ -86,6 +96,8 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.barTintColor = .white
+        
+        navigationItem.rightBarButtonItem = addEventButton
     }
     
     fileprivate func setupLayout() {
@@ -104,14 +116,12 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numEvents =", events.count)
         return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: eventCellIdentifier, for: indexPath) as? EventCell else { return UITableViewCell() }
         
-        print("Title received is:", events[indexPath.row].title)
         cell.configure(event: events[indexPath.row])
         
         return cell
@@ -120,5 +130,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-
 }
