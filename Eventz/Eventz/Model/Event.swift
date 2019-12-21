@@ -11,12 +11,16 @@ import Foundation
 struct Event {
     
     // MARK: - Properties
+    var id: String
+    
     var title: String
     var category: String
     var description: String?
     var date: Date
     var location: String
-    var imageURL: String
+    var imageURL: String?
+    
+    var organizerId: String
     
     // ???
 //    var tags: [String]

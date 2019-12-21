@@ -41,11 +41,20 @@ class HomeViewController: UIViewController {
         return b
     }()
     
+    fileprivate let searchBar: UISearchBar = {
+        let sb = UISearchBar()
+        sb.placeholder = "Search Events …"
+        sb.sizeToFit()
+        sb.isTranslucent = false
+        return sb
+    }()
+    
     // MARK: - Properties
     
     // Dummy events, later we get this from Firestore
     var events = [Event]()
     var firestore = FirestoreService.shared
+    var auth = AuthService.shared
     
     // Dummy variable, later we get this from Firebase Authentication
     var loggedIn = false
@@ -58,21 +67,13 @@ class HomeViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
-        
-        // Present LoginVC if user is not logged in
-//        if (!loggedIn) {
-//            
-//            let layout = UICollectionViewFlowLayout()
-//            layout.scrollDirection = .horizontal
-//            let welcomeVC = WelcomeViewController(collectionViewLayout: layout)
-//            welcomeVC.modalPresentationStyle = .fullScreen
-//            present(welcomeVC, animated: false, completion: nil)
-//        }
-        
-        let loginVC = LoginViewController()
-        loginVC.modalPresentationStyle = .fullScreen
-        navigationController?.present(loginVC, animated: false, completion: nil)
+        do {
+            try auth.signOut()
+        } catch {
+            
+        }
         
         firestore.fetchEvents(completion: { (events) in
             self.events = events
@@ -80,6 +81,16 @@ class HomeViewController: UIViewController {
             self.setupUI()
             self.setupLayout()
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !auth.isLoggedIn() {
+            let loginVC = LoginViewController()
+            loginVC.modalPresentationStyle = .fullScreen
+            navigationController?.present(loginVC, animated: false, completion: nil)
+        }
     }
     
     @objc fileprivate func handleAddEvent() {
@@ -98,6 +109,7 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .white
         
         navigationItem.rightBarButtonItem = addEventButton
+        navigationItem.titleView = searchBar
     }
     
     fileprivate func setupLayout() {
@@ -130,4 +142,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
 }
