@@ -20,7 +20,6 @@
 		507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E523A5890F009B7B72 /* WelcomeVC.swift */; };
 		507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */; };
 		50AD3A3B23AA44A1005C4D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */; };
-		50AD3A3F23AA481B005C4D3E /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD3A3E23AA481B005C4D3E /* FirestoreService.swift */; };
 		50C0204B237DEBAB004CE4FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204A237DEBAB004CE4FA /* Event.swift */; };
 		50C0204D237DEBB5004CE4FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204C237DEBB5004CE4FA /* User.swift */; };
 		50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2C92373C1F5002985DA /* AppDelegate.swift */; };
@@ -30,6 +29,8 @@
 		50F0D2D62373C1F8002985DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F0D2D42373C1F8002985DA /* LaunchScreen.storyboard */; };
 		50F0D2E02373DAC8002985DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2DF2373DAC8002985DA /* Constants.swift */; };
 		50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2E12373DEF6002985DA /* Extensions.swift */; };
+		50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */; };
+		50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */; };
 		84D27644C3FECDF8C79D1D1A /* Pods_Eventz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +49,6 @@
 		507BE0E523A5890F009B7B72 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCell.swift; sourceTree = "<group>"; };
 		50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		50AD3A3E23AA481B005C4D3E /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirestoreService.swift; path = ../../../../../NewsTopia/NewsTopia/NewsTopia/Services/FirestoreService.swift; sourceTree = "<group>"; };
 		50C0204A237DEBAB004CE4FA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		50C0204C237DEBB5004CE4FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		50F0D2C62373C1F5002985DA /* Eventz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +60,8 @@
 		50F0D2D72373C1F8002985DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F0D2DF2373DAC8002985DA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		50F0D2E12373DEF6002985DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.release.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.release.xcconfig"; sourceTree = "<group>"; };
 		DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,7 +123,8 @@
 		50C02049237DE7E6004CE4FA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				50AD3A3E23AA481B005C4D3E /* FirestoreService.swift */,
+				50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */,
+				50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,12 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				507BE0DC23A3685A009B7B72 /* ProfileVC.swift in Sources */,
-				50AD3A3F23AA481B005C4D3E /* FirestoreService.swift in Sources */,
+				50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */,
 				507BE0DA23A366FE009B7B72 /* TabC.swift in Sources */,
 				383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */,
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */,
+				50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */,
 				507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */,
 				507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */,
 				5056FE5E23A6318C0000EA2E /* GetStartedPageCell.swift in Sources */,

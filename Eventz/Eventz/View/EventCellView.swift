@@ -59,10 +59,9 @@ class EventCellView: UIView {
     
     func configure(event: Event) {
         
-        backgroundImage.image = UIImage(named: event.imageURL)
-//        backgroundImage.image = #imageLiteral(resourceName: "concert")
+        backgroundImage.image = UIImage(named: event.imageURL ?? "")
+        // backgroundImage.image = #imageLiteral(resourceName: "concert")
         titleLabel.text = event.title
-        print("Title is:", event.title)
         categoryLabel.text = event.category
     }
     

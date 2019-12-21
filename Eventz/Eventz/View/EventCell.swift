@@ -28,7 +28,7 @@ class EventCell: UITableViewCell {
     // MARK: - UI Setup
     
     fileprivate func setupUI() {
-        
+        backgroundColor = .white
     }
     
     fileprivate func setupLayout() {
