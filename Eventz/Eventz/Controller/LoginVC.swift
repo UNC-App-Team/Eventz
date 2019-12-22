@@ -140,6 +140,7 @@ class LoginViewController: UIViewController {
     
     @objc func signUpTapped() {
         let signUpVC = SignUpViewController()
+        signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true)
     }
     
@@ -195,5 +196,4 @@ class LoginViewController: UIViewController {
         super.touchesEnded(touches, with: event)
         view.endEditing(true)
     }
-    
 }
