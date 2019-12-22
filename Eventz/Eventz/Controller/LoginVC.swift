@@ -35,28 +35,20 @@ class LoginViewController: UIViewController {
     }()
     
     fileprivate let emailTextField: UITextField = {
-        let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.carolinaBlue, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)])
-        tf.backgroundColor = .white
-        tf.textColor = .black
-        tf.layer.cornerRadius = 16
-        tf.addLeftInset(height: 44)
+        let tf = CustomTextField(placeholder: "Email …", textColor: .carolinaBlue)
         tf.keyboardType = .emailAddress
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
+        tf.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return tf
     }()
 
     fileprivate let passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.carolinaBlue, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)])
-        tf.backgroundColor = .white
-        tf.textColor = .black
-        tf.layer.cornerRadius = 16
-        tf.addLeftInset(height: 44)
+        let tf = CustomTextField(placeholder: "Password …", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
         tf.isSecureTextEntry = true
+        tf.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return tf
     }()
 
@@ -66,24 +58,25 @@ class LoginViewController: UIViewController {
         return b
     }()
 
-    fileprivate let loginButton: UIButton = {
-        let b = UIButton(title: "Sign in", titleColor: .white, font: .systemFont(ofSize: 20, weight: .bold), backgroundColor: UIColor.carolinaBlue, target: self, action: nil)
+    fileprivate let signInButton: UIButton = {
+        let b = UIButton(title: "Sign in", titleColor: .white, font: .systemFont(ofSize: 20, weight: .bold), backgroundColor: UIColor.carolinaBlue)
+        b.heightAnchor.constraint(equalToConstant: 44).isActive = true
         b.layer.cornerRadius = 22
         b.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
         return b
     }()
 
-    fileprivate let signupButton: UIButton = {
+    fileprivate let signUpButton: UIButton = {
         let b = UIButton()
         
-        let labelString = NSMutableAttributedString(string: "No account yet?   ", attributes: [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .regular),
+        let labelString = NSMutableAttributedString(string: "No account yet?  ", attributes: [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .regular),
             NSAttributedString.Key.foregroundColor : UIColor.white])
         
-        labelString.append(NSMutableAttributedString(string: "Sign up.", attributes: [
-        NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .heavy),
+        labelString.append(NSMutableAttributedString(string: "Register.", attributes: [
+        NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .bold),
         NSAttributedString.Key.foregroundColor : UIColor.white,
-        NSAttributedString.Key.underlineStyle : NSUnderlineStyle.thick.rawValue,
+        NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
         NSAttributedString.Key.underlineColor : UIColor.carolinaBlue]))
         
         b.setAttributedTitle(labelString, for: .normal)
@@ -92,9 +85,11 @@ class LoginViewController: UIViewController {
         return b
     }()
     
-    let firebase = FirestoreService.shared
+    fileprivate lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, emailTextField, passwordTextField, forgotPassWordButton, signInButton, signUpButton])
+    
+    let firestore = FirestoreService.shared
     let auth = AuthService.shared
-    let openingForTheFirstTime = true
+//    let openingForTheFirstTime = true
     
     // MARK: - Lifecycle
     
@@ -103,6 +98,7 @@ class LoginViewController: UIViewController {
         
         setupUI()
         setupLayout()
+        setupNotificationObservers()
     }
     
     // MARK: - Selectors
@@ -140,14 +136,30 @@ class LoginViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         }
-        
     }
     
     @objc func signUpTapped() {
-        print("Sign up tapped")
         let signUpVC = SignUpViewController()
-        signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true)
+    }
+    
+    @objc fileprivate func handleKeyboardShow(notification: Notification) {
+        guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = value.cgRectValue
+        
+        // Calculate distance from botton of signUpButton to bottom of the screen
+        let bottomspace = view.frame.height - stackView.frame.origin.y - stackView.frame.height
+        
+        let difference = keyboardFrame.height - bottomspace
+        if difference > 0 {
+            view.transform = CGAffineTransform(translationX: 0, y: -difference - 12)
+        }
+    }
+    
+    @objc fileprivate func handleKeyboardHide() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.transform = .identity
+        })
     }
     
     // MARK: - UI Setup
@@ -158,29 +170,23 @@ class LoginViewController: UIViewController {
     
     fileprivate func setupLayout() {
         
-        view.addSubview(titleLabel)
-        titleLabel.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
-        titleLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        stackView.axis = .vertical
         
-        let centerStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, forgotPassWordButton])
-        centerStackView.axis = .vertical
-        centerStackView.spacing = 12
-        centerStackView.setCustomSpacing(6, after: passwordTextField)
-        emailTextField.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor).isActive = true
-        view.addSubview(centerStackView)
-        centerStackView.anchor(top: titleLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+        stackView.spacing = 16
+        stackView.setCustomSpacing(32, after: titleLabel)
+        stackView.setCustomSpacing(8, after: emailTextField)
+        stackView.setCustomSpacing(6, after: passwordTextField)
+        stackView.setCustomSpacing(24, after: forgotPassWordButton)
         
-        let bottomStackView = UIStackView(arrangedSubviews: [loginButton, signupButton])
-        bottomStackView.axis = .vertical
-        bottomStackView.spacing = 12
-        bottomStackView.distribution = .fillEqually
-        
-        loginButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
-        signupButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor).isActive = true
-        
-        view.addSubview(bottomStackView)
-        bottomStackView.anchor(top: centerStackView.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 48, left: 16, bottom: 0, right: 16))
+        view.addSubview(stackView)
+        stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 24, bottom: 0, right: 24))
+        stackView.centerYToSuperview()
+    }
+    
+    fileprivate func setupNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     // MARK: - Helper Functions

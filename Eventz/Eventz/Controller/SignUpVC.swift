@@ -25,7 +25,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }()
     
     fileprivate let firstNameTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "First name …", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "First name …", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .words
         tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
@@ -33,7 +33,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }()
     
     fileprivate let lastNameTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "Last name …", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "Last name …", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .words
         tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     fileprivate let divider = UIView(backgroundColor: .carolinaBlue)
     
     fileprivate let emailTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "UNC email …", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "UNC email …", textColor: .carolinaBlue)
         tf.keyboardType = .emailAddress
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
@@ -52,7 +52,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }()
     
     fileprivate let passwordTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "Password … (min. 8 characters)", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "Password … (min. 8 characters)", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
         tf.isSecureTextEntry = true
@@ -111,7 +111,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         stackView.axis = .vertical
         stackView.spacing = 16
-        stackView.setCustomSpacing(16, after: titleLabel)
         stackView.setCustomSpacing(56, after: textLabel)
         stackView.setCustomSpacing(8, after: firstNameTextField)
         stackView.setCustomSpacing(8, after: emailTextField)
@@ -135,7 +134,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     fileprivate func setupNotificationObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
