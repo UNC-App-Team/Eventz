@@ -20,6 +20,7 @@
 		507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E523A5890F009B7B72 /* WelcomeVC.swift */; };
 		507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */; };
 		5090566723AFEDEA000792C2 /* RegistrationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090566623AFEDEA000792C2 /* RegistrationChecker.swift */; };
+		5090566923B02050000792C2 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090566823B02050000792C2 /* RegistrationVC.swift */; };
 		50AD3A3B23AA44A1005C4D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */; };
 		50C0204B237DEBAB004CE4FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204A237DEBAB004CE4FA /* Event.swift */; };
 		50C0204D237DEBB5004CE4FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204C237DEBB5004CE4FA /* User.swift */; };
@@ -32,7 +33,6 @@
 		50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2E12373DEF6002985DA /* Extensions.swift */; };
 		50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */; };
 		50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */; };
-		50F0DE0323AED7D4008E1B71 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0223AED7D4008E1B71 /* SignUpVC.swift */; };
 		50F0DE0523AF72C4008E1B71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */; };
 		84D27644C3FECDF8C79D1D1A /* Pods_Eventz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +52,7 @@
 		507BE0E523A5890F009B7B72 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCell.swift; sourceTree = "<group>"; };
 		5090566623AFEDEA000792C2 /* RegistrationChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationChecker.swift; sourceTree = "<group>"; };
+		5090566823B02050000792C2 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50C0204A237DEBAB004CE4FA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		50C0204C237DEBB5004CE4FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		50F0D2E12373DEF6002985DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
-		50F0DE0223AED7D4008E1B71 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.release.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.release.xcconfig"; sourceTree = "<group>"; };
 		DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,7 +122,7 @@
 				507BE0D923A366FE009B7B72 /* TabC.swift */,
 				50701519239CE8C3006C7023 /* HomeVC.swift */,
 				383BD8292373CBBA002A2715 /* LoginVC.swift */,
-				50F0DE0223AED7D4008E1B71 /* SignUpVC.swift */,
+				5090566823B02050000792C2 /* RegistrationVC.swift */,
 				507BE0DB23A3685A009B7B72 /* ProfileVC.swift */,
 				5056FE5A23A605C00000EA2E /* Welcome */,
 			);
@@ -318,9 +318,9 @@
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */,
-				50F0DE0323AED7D4008E1B71 /* SignUpVC.swift in Sources */,
 				50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */,
 				507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */,
+				5090566923B02050000792C2 /* RegistrationVC.swift in Sources */,
 				507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */,
 				5056FE5E23A6318C0000EA2E /* GetStartedPageCell.swift in Sources */,
 				50F0DE0523AF72C4008E1B71 /* CustomTextField.swift in Sources */,

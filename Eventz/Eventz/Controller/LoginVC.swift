@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
         return b
     }()
 
-    fileprivate let signUpButton: UIButton = {
+    fileprivate let registerButton: UIButton = {
         let b = UIButton()
         
         let labelString = NSMutableAttributedString(string: "No account yet?  ", attributes: [
@@ -81,11 +81,11 @@ class LoginViewController: UIViewController {
         
         b.setAttributedTitle(labelString, for: .normal)
         
-        b.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
+        b.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
         return b
     }()
     
-    fileprivate lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, emailTextField, passwordTextField, forgotPassWordButton, signInButton, signUpButton])
+    fileprivate lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, emailTextField, passwordTextField, forgotPassWordButton, signInButton, registerButton])
     
     let firestore = FirestoreService.shared
     let auth = AuthService.shared
@@ -138,10 +138,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc func signUpTapped() {
-        let signUpVC = SignUpViewController()
-        signUpVC.modalPresentationStyle = .fullScreen
-        present(signUpVC, animated: true)
+    @objc func registerTapped() {
+        let registrationVC = RegistrationViewController()
+        registrationVC.modalPresentationStyle = .fullScreen
+        present(registrationVC, animated: true)
     }
     
     @objc fileprivate func handleKeyboardShow(notification: Notification) {

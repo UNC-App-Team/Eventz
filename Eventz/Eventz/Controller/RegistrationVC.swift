@@ -1,5 +1,5 @@
 //
-//  SignUpVC.swift
+//  RegistrationVC.swift
 //  Eventz
 //
 //  Created by Max Nabokow on 12/21/19.
@@ -10,7 +10,7 @@ import UIKit
 import LBTATools
 import JGProgressHUD
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - UI Elements
     
@@ -67,7 +67,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         b.setTitleColor(.darkGray, for: .disabled)
         b.heightAnchor.constraint(equalToConstant: 50).isActive = true
         b.layer.cornerRadius = 25
-        b.addTarget(self, action: #selector(continueTapped), for: .touchUpInside)
+        b.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
         return b
     }()
     
@@ -160,7 +160,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    @objc fileprivate func continueTapped() {
+    @objc fileprivate func signUpTapped() {
         let hud = JGProgressHUD(style: .dark, text: "Signing up")
         hud.show(in: self.view)
         
