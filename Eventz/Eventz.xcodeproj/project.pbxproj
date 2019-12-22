@@ -473,6 +473,7 @@
 			baseConfigurationReference = 44041ECFF40892D6542CF86B /* Pods-Eventz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5KYHQSZAZ;
 				INFOPLIST_FILE = Eventz/Info.plist;
@@ -492,6 +493,7 @@
 			baseConfigurationReference = 6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5KYHQSZAZ;
 				INFOPLIST_FILE = Eventz/Info.plist;

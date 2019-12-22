@@ -40,6 +40,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return tf
     }()
     
+    fileprivate let divider = UIView(backgroundColor: .carolinaBlue)
+    
     fileprivate let emailTextField: UITextField = {
         let tf = CustomTextField(placeholder: "UNC email …", textColor: .carolinaBlue, padding: 16)
         tf.keyboardType = .emailAddress
@@ -69,6 +71,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return b
     }()
     
+    fileprivate lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, firstNameTextField, lastNameTextField, divider, emailTextField, passwordTextField, signUpButton])
+    
     // MARK: - Properties
     let auth = AuthService.shared
     
@@ -80,11 +84,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         setupUI()
         setupLayout()
         setupNavBar()
+        setupNotificationObservers()
         
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - UI Setup
@@ -97,10 +107,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     fileprivate func setupLayout() {
         
-        let divider = UIView(backgroundColor: .carolinaBlue)
-        divider.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, firstNameTextField, lastNameTextField, divider, emailTextField, passwordTextField, signUpButton])
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.setCustomSpacing(16, after: titleLabel)
@@ -111,16 +117,38 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(stackView)
         stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 24, bottom: 0, right: 24))
         stackView.centerYToSuperview()
+        
+        divider.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     
     fileprivate func setupNavBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
+    }
+    
+    fileprivate func setupNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: - Selectors
     
-    @objc fileprivate func cancelTapped() {
-        dismiss(animated: true)
+    @objc fileprivate func handleKeyboardShow(notification: Notification) {
+        guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = value.cgRectValue
+        
+        // Calculate distance from botton of signUpButton to bottom of the screen
+        let bottomspace = view.frame.height - stackView.frame.origin.y - stackView.frame.height
+        
+        let difference = keyboardFrame.height - bottomspace
+        if difference > 0 {
+            view.transform = CGAffineTransform(translationX: 0, y: -difference - 8)
+        }
+    }
+    
+    @objc fileprivate func handleKeyboardHide() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.transform = .identity
+        })
     }
     
     @objc fileprivate func continueTapped() {
