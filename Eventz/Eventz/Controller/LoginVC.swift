@@ -144,23 +144,10 @@ class LoginViewController: UIViewController {
     }
     
     @objc func signUpTapped() {
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Signing up"
-        hud.show(in: self.view)
-        
-        auth.signUp(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "") { (authResults, error) in
-            
-            if let err = error {
-                hud.dismiss()
-                let alert = UIAlertController(title: "Sign up failed", message: err.localizedDescription, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true)
-            } else {
-                hud.dismiss()
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
+        print("Sign up tapped")
+        let signUpVC = SignUpViewController()
+        signUpVC.modalPresentationStyle = .fullScreen
+        present(signUpVC, animated: true)
     }
     
     // MARK: - UI Setup
