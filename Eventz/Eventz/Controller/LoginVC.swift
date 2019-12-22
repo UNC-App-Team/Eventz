@@ -101,6 +101,11 @@ class LoginViewController: UIViewController {
         setupNotificationObservers()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Selectors
     
     @objc func forgotPasswordTapped() {
