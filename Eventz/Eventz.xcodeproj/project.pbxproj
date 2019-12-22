@@ -31,6 +31,8 @@
 		50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2E12373DEF6002985DA /* Extensions.swift */; };
 		50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */; };
 		50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */; };
+		50F0DE0323AED7D4008E1B71 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0223AED7D4008E1B71 /* SignUpVC.swift */; };
+		50F0DE0523AF72C4008E1B71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */; };
 		84D27644C3FECDF8C79D1D1A /* Pods_Eventz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		50F0D2E12373DEF6002985DA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		50F0DE0223AED7D4008E1B71 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.release.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.release.xcconfig"; sourceTree = "<group>"; };
 		DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,6 +108,7 @@
 				507BE0DF23A372E4009B7B72 /* EventCellView.swift */,
 				507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */,
 				5056FE5D23A6318B0000EA2E /* GetStartedPageCell.swift */,
+				50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 				507BE0D923A366FE009B7B72 /* TabC.swift */,
 				50701519239CE8C3006C7023 /* HomeVC.swift */,
 				383BD8292373CBBA002A2715 /* LoginVC.swift */,
+				50F0DE0223AED7D4008E1B71 /* SignUpVC.swift */,
 				507BE0DB23A3685A009B7B72 /* ProfileVC.swift */,
 				5056FE5A23A605C00000EA2E /* Welcome */,
 			);
@@ -308,10 +314,12 @@
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */,
+				50F0DE0323AED7D4008E1B71 /* SignUpVC.swift in Sources */,
 				50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */,
 				507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */,
 				507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */,
 				5056FE5E23A6318C0000EA2E /* GetStartedPageCell.swift in Sources */,
+				50F0DE0523AF72C4008E1B71 /* CustomTextField.swift in Sources */,
 				50F0D2CC2373C1F5002985DA /* SceneDelegate.swift in Sources */,
 				507BE0DE23A36FD9009B7B72 /* EventCell.swift in Sources */,
 				507BE0E023A372E4009B7B72 /* EventCellView.swift in Sources */,
@@ -465,6 +473,7 @@
 			baseConfigurationReference = 44041ECFF40892D6542CF86B /* Pods-Eventz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5KYHQSZAZ;
 				INFOPLIST_FILE = Eventz/Info.plist;
@@ -484,6 +493,7 @@
 			baseConfigurationReference = 6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U5KYHQSZAZ;
 				INFOPLIST_FILE = Eventz/Info.plist;

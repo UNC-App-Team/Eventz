@@ -6,7 +6,3 @@
 //  Copyright © 2019 Maximilian Nabokow. All rights reserved.
 //
 
-// MARK: - LoginVC TextFields + Buttons
-
-
-
