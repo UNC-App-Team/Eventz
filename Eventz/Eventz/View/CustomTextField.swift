@@ -13,7 +13,7 @@ class CustomTextField: UITextField {
     var padding: CGFloat
     
     
-    init(placeholder: String, textColor: UIColor = .label, placeholderColor: UIColor = .placeholderText, placeholderFont: UIFont = .systemFont(ofSize: 18, weight: .regular), padding: CGFloat) {
+    init(placeholder: String, textColor: UIColor = .label, placeholderColor: UIColor = .placeholderText, placeholderFont: UIFont = .systemFont(ofSize: 18, weight: .regular), padding: CGFloat = 16) {
         self.padding = padding
         super.init(frame: .zero)
         

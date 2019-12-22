@@ -51,7 +51,6 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
-    // Dummy events, later we get this from Firestore
     var events = [Event]()
     var firestore = FirestoreService.shared
     var auth = AuthService.shared
@@ -64,7 +63,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -140,7 +139,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 175
     }
 }
 

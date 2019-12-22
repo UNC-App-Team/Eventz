@@ -19,6 +19,7 @@
 		507BE0E223A57D57009B7B72 /* Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E123A57D56009B7B72 /* Dump.swift */; };
 		507BE0E623A5890F009B7B72 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E523A5890F009B7B72 /* WelcomeVC.swift */; };
 		507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */; };
+		5090566723AFEDEA000792C2 /* RegistrationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090566623AFEDEA000792C2 /* RegistrationChecker.swift */; };
 		50AD3A3B23AA44A1005C4D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */; };
 		50C0204B237DEBAB004CE4FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204A237DEBAB004CE4FA /* Event.swift */; };
 		50C0204D237DEBB5004CE4FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204C237DEBB5004CE4FA /* User.swift */; };
@@ -50,6 +51,7 @@
 		507BE0E123A57D56009B7B72 /* Dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dump.swift; path = Controller/Dump.swift; sourceTree = "<group>"; };
 		507BE0E523A5890F009B7B72 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCell.swift; sourceTree = "<group>"; };
+		5090566623AFEDEA000792C2 /* RegistrationChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationChecker.swift; sourceTree = "<group>"; };
 		50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50C0204A237DEBAB004CE4FA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		50C0204C237DEBB5004CE4FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				50C0204A237DEBAB004CE4FA /* Event.swift */,
 				50C0204C237DEBB5004CE4FA /* User.swift */,
 				5056FE5823A5FA4E0000EA2E /* WelcomePage.swift */,
+				5090566623AFEDEA000792C2 /* RegistrationChecker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5090566723AFEDEA000792C2 /* RegistrationChecker.swift in Sources */,
 				507BE0DC23A3685A009B7B72 /* ProfileVC.swift in Sources */,
 				50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */,
 				507BE0DA23A366FE009B7B72 /* TabC.swift in Sources */,

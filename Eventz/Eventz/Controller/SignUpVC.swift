@@ -25,38 +25,38 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }()
     
     fileprivate let firstNameTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "First name …", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "First name …", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .words
-        tf.addTarget(self, action: #selector(checkEntries), for: .editingChanged)
+        tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         return tf
     }()
     
     fileprivate let lastNameTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "Last name …", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "Last name …", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .words
-        tf.addTarget(self, action: #selector(checkEntries), for: .editingChanged)
+        tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         return tf
     }()
     
     fileprivate let divider = UIView(backgroundColor: .carolinaBlue)
     
     fileprivate let emailTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "UNC email …", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "UNC email …", textColor: .carolinaBlue)
         tf.keyboardType = .emailAddress
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
-        tf.addTarget(self, action: #selector(checkEntries), for: .editingChanged)
+        tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         return tf
     }()
     
     fileprivate let passwordTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "Password … (min. 8 characters)", textColor: .carolinaBlue, padding: 16)
+        let tf = CustomTextField(placeholder: "Password … (min. 8 characters)", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
         tf.isSecureTextEntry = true
-        tf.addTarget(self, action: #selector(checkEntries), for: .editingChanged)
+        tf.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
         return tf
     }()
     
@@ -75,6 +75,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     let auth = AuthService.shared
+    var registrationChecker = RegistrationChecker()
     
     // MARK: - Lifecycle
     
@@ -85,6 +86,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         setupLayout()
         setupNavBar()
         setupNotificationObservers()
+        setupRegistrationChecker()
         
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
@@ -109,7 +111,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         stackView.axis = .vertical
         stackView.spacing = 16
-        stackView.setCustomSpacing(16, after: titleLabel)
         stackView.setCustomSpacing(56, after: textLabel)
         stackView.setCustomSpacing(8, after: firstNameTextField)
         stackView.setCustomSpacing(8, after: emailTextField)
@@ -125,8 +126,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
     }
     
+    fileprivate func setupRegistrationChecker() {
+        registrationChecker.observer = { [unowned self] (isValid) in
+            self.signUpButton.isEnabled = isValid
+            self.signUpButton.backgroundColor = isValid ? .carolinaBlue : .lightGray
+        }
+    }
+    
     fileprivate func setupNotificationObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -141,7 +150,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         let difference = keyboardFrame.height - bottomspace
         if difference > 0 {
-            view.transform = CGAffineTransform(translationX: 0, y: -difference - 8)
+            view.transform = CGAffineTransform(translationX: 0, y: -difference - 12)
         }
     }
     
@@ -152,8 +161,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc fileprivate func continueTapped() {
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Signing up"
+        let hud = JGProgressHUD(style: .dark, text: "Signing up")
         hud.show(in: self.view)
         
         auth.signUp(withEmail: emailTextField.text!, password: passwordTextField.text!) { (_, error) in
@@ -171,28 +179,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc fileprivate func checkEntries() {
-        
-        if
-            let firstName = firstNameTextField.text,
-            let lastName = lastNameTextField.text,
-            let email = emailTextField.text,
-            let password = passwordTextField.text,
-            firstName != "",
-            lastName != "",
-            email != "",
-            password != "",
-            email.contains("@"),
-            email.hasSuffix("unc.edu"),
-            password.count >= 8
-        {
-            signUpButton.backgroundColor = .carolinaBlue
-            signUpButton.isEnabled = true
-        }
-        else {
-            signUpButton.backgroundColor = .lightGray
-            signUpButton.isEnabled = false
-        }
+    @objc fileprivate func handleTextChange() {
+        registrationChecker.firstName = firstNameTextField.text
+        registrationChecker.lastName = lastNameTextField.text
+        registrationChecker.email = emailTextField.text
+        registrationChecker.password = passwordTextField.text
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
