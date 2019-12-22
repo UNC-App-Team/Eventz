@@ -128,7 +128,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     fileprivate func setupRegistrationChecker() {
-        registrationChecker.observer = { (isValid) in
+        registrationChecker.observer = { [unowned self] (isValid) in
             self.signUpButton.isEnabled = isValid
             self.signUpButton.backgroundColor = isValid ? .carolinaBlue : .lightGray
         }
