@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 extension UITextField {
     
@@ -33,5 +34,13 @@ extension UIViewController {
         view.clipsToBounds = true
     }
     
+}
+
+extension JGProgressHUD {
+    
+    convenience init(style: JGProgressHUDStyle, text: String) {
+        self.init(style: style)
+        textLabel.text = text
+    }
 }
 
