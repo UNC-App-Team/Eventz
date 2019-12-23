@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import LBTATools
 
 class ProfileViewController: UIViewController {
     
     // MARK: - UI Elements
+    
+    fileprivate let profilePhotoBackgroundView: UIView = {
+        let v = UIView(backgroundColor: .white)
+        v.setupShadow(opacity: 0.6, radius: 4, offset: .init(width: 4, height: 4), color: .black)
+        return v
+    }()
     
     fileprivate let profilePhotoImageView: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "girl 1"))
@@ -23,8 +30,8 @@ class ProfileViewController: UIViewController {
     
     fileprivate let bottomView: UIView = {
         let v = UIView(backgroundColor: .white)
-        v.layer.cornerRadius = 24
-        v.setupShadow()
+        v.layer.cornerRadius = 36
+        v.setupShadow(opacity: 0.8, radius: 4, offset: .init(width: 4, height: 4), color: .black)
         return v
     }()
     
@@ -38,7 +45,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        print(profilePhotoImageView.frame.height)
+        profilePhotoBackgroundView.layer.cornerRadius = profilePhotoBackgroundView.frame.height / 2
         profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
     }
     
@@ -52,9 +59,15 @@ class ProfileViewController: UIViewController {
     }
     
     fileprivate func setupLayout() {
+        view.addSubview(profilePhotoBackgroundView)
+        profilePhotoBackgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32).isActive = true
+        profilePhotoBackgroundView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
+        profilePhotoBackgroundView.widthAnchor.constraint(equalTo: profilePhotoBackgroundView.heightAnchor).isActive = true
+        profilePhotoBackgroundView.centerXToSuperview()
+        
         view.addSubview(profilePhotoImageView)
-        profilePhotoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        profilePhotoImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        profilePhotoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32).isActive = true
+        profilePhotoImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         profilePhotoImageView.widthAnchor.constraint(equalTo: profilePhotoImageView.heightAnchor).isActive = true
         profilePhotoImageView.centerXToSuperview()
         
