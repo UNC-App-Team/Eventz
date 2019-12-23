@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
         IQKeyboardManager.shared.placeholderFont = .systemFont(ofSize: 14, weight: .semibold)
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 12
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         return true
