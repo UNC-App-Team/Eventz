@@ -87,14 +87,20 @@ class LoginViewController: UIViewController {
     
     fileprivate lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, emailTextField, passwordTextField, forgotPassWordButton, signInButton, registerButton])
     
-    let firestore = FirestoreService.shared
-    let auth = AuthService.shared
+    private let firestore = FirestoreService.shared
+    private let auth = AuthService.shared
+    
+    var returningFromSignUp = false
 //    let openingForTheFirstTime = true
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if returningFromSignUp {
+            dismiss(animated: true)
+        }
         
         setupUI()
         setupLayout()

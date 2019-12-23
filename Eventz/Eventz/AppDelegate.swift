@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
+        IQKeyboardManager.shared.placeholderFont = .systemFont(ofSize: 14, weight: .semibold)
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         return true
     }

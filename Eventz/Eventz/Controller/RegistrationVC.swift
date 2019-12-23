@@ -52,7 +52,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }()
     
     fileprivate let passwordTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "Password … (min. 8 characters)", textColor: .carolinaBlue)
+        let tf = CustomTextField(placeholder: "Password … (8+ characters)", textColor: .carolinaBlue)
         tf.autocorrectionType = .no
         tf.autocapitalizationType = .none
         tf.isSecureTextEntry = true
@@ -71,7 +71,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         return b
     }()
     
-    fileprivate lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, firstNameTextField, lastNameTextField, divider, emailTextField, passwordTextField, signUpButton])
+    fileprivate let backToLoginButton: UIButton = {
+        let b = UIButton(title: "Back to Login", titleColor: .white, font: .systemFont(ofSize: 16, weight: .semibold))
+        b.addTarget(self, action: #selector(backToLoginTapped), for: .touchUpInside)
+        return b
+    }()
+    
+    fileprivate lazy var stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel, firstNameTextField, lastNameTextField, divider, emailTextField, passwordTextField, signUpButton, backToLoginButton])
     
     // MARK: - Properties
     let auth = AuthService.shared
@@ -84,7 +90,6 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         
         setupUI()
         setupLayout()
-        setupNavBar()
         setupRegistrationChecker()
         
         firstNameTextField.delegate = self
@@ -116,10 +121,6 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         divider.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     
-    fileprivate func setupNavBar() {
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
-    }
-    
     fileprivate func setupRegistrationChecker() {
         registrationChecker.observer = { [unowned self] (isValid) in
             self.signUpButton.isEnabled = isValid
@@ -143,9 +144,18 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 self.present(alert, animated: true)
             } else {
                 hud.dismiss()
+                
+                guard let loginVC = self.presentingViewController as? LoginViewController else { return }
+                loginVC.returningFromSignUp = true
+                
                 self.dismiss(animated: true)
+                
             }
         }
+    }
+    
+    @objc fileprivate func backToLoginTapped() {
+        dismiss(animated: true)
     }
     
     @objc fileprivate func handleTextChange() {
