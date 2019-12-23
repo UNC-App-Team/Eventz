@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import ColorThiefSwift
 
 class MyInterestsCell: UICollectionViewCell {
     
     // MARK: - UI Elements
     
     fileprivate let imageView: UIImageView = {
-        let iv = UIImageView(image: #imageLiteral(resourceName: "interestImage"))
+        let iv = UIImageView(image: #imageLiteral(resourceName: "law"))
         iv.contentMode = .scaleAspectFit
         return iv
     }()
@@ -41,9 +42,10 @@ class MyInterestsCell: UICollectionViewCell {
     fileprivate func setupUI() {
         backgroundColor = .white
         layer.cornerRadius = 12
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1
         setupShadow(opacity: 0.3, radius: 3, offset: .init(width: 3, height: 3), color: .black)
+        
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 0.5
     }
     
     fileprivate func setupLayout() {

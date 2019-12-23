@@ -18,9 +18,9 @@ class MyInterestsCollectionView: UICollectionView {
     
     let interests: [(image: UIImage, title: String)] = [
         (UIImage(named: "money")!, "Finance"),
-        (UIImage(named: "interestImage")!, "Computer Science"),
-        (UIImage(named: "law")!, "Law"),
-        (UIImage(named: "running")!, "Running")
+        (UIImage(named: "interestImage")!, "Social Justice"),
+        (UIImage(named: "law")!, "Biology"),
+        (UIImage(named: "running")!, "Free Food")
     ]
     
     let inset: CGFloat = 6

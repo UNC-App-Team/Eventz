@@ -16,8 +16,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = interestsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MyInterestsCell
-            else { return UICollectionViewCell(backgroundColor: .orange) }
+        guard let cell = interestsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MyInterestsCell else { return UICollectionViewCell()}
         
         cell.configure(image: interestsCollectionView.interests[indexPath.row].image, title: interestsCollectionView.interests[indexPath.row].title)
         
