@@ -12,20 +12,26 @@ struct User {
     
     // MARK: - Properties
     
+    var id: String
     var firstName: String
     var lastName: String
-    var age: Int?
-    var hometown: String?
+    var age: Int
+    var hometown: String
+    
+    lazy var displayName: String = {
+        return "\(firstName) \(lastName)"
+    }()
     
 //    var profilePicURL: String?
 //    var interests: [String?]?
     
     // MARK: - Init
-    init(firstName: String, lastName: String, age: Int? = -1, hometown: String? = "Unknown", profilePicURL: String?, interests: [String?]?) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.age = age
-        self.hometown = hometown
+    init(id: String, firstName: String?, lastName: String?, age: Int?, hometown: String?, profilePicURL: String?, interests: [String?]?) {
+        self.id = id
+        self.firstName = firstName ?? "firstName"
+        self.lastName = lastName ?? "lastName"
+        self.age = age ?? -1
+        self.hometown = hometown ?? "Unknown"
 //        self.profilePicURL = profilePicURL
 //        self.interests = interests
     }
