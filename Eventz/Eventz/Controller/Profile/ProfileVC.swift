@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
     fileprivate let bottomView: UIView = {
         let v = UIView(backgroundColor: .white)
         v.layer.cornerRadius = 36
+        v.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         v.setupShadow(opacity: 0.8, radius: 4, offset: .init(width: 4, height: 4), color: .black)
         return v
     }()
@@ -47,7 +48,7 @@ class ProfileViewController: UIViewController {
     }()
     
     fileprivate let infoLabel: UILabel = {
-        let l = UILabel(text: "San Francisco, CA \nUNC \n20 years", font: .systemFont(ofSize: 16, weight: .regular), textColor: .darkGray, textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "Hometown: San Francisco, CA \nCollege: UNC \nAge: 20", font: .systemFont(ofSize: 16, weight: .regular), textColor: .darkGray, textAlignment: .left, numberOfLines: 0)
         return l
     }()
     
@@ -57,9 +58,19 @@ class ProfileViewController: UIViewController {
     }()
     
     fileprivate let myInterestsLabel: UILabel = {
-        let l = UILabel(text: "My Interests", font: .systemFont(ofSize: 26, weight: .medium), textColor: .black, textAlignment: .left, numberOfLines: 1)
+        let l = UILabel(text: "My Interests", font: .systemFont(ofSize: 26, weight: .medium), textColor: .carolinaBlue, textAlignment: .left, numberOfLines: 1)
         return l
     }()
+    
+    let interestsCollectionView: MyInterestsCollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = MyInterestsCollectionView(frame: .zero, collectionViewLayout: layout)
+        return cv
+    }()
+    
+    // MARK: - Properties
+    let cellIdentifier = "myInterestsCell"
     
     // MARK: - Lifecycle
     
@@ -68,6 +79,10 @@ class ProfileViewController: UIViewController {
         
         setupUI()
         setupLayout()
+        
+        interestsCollectionView.register(MyInterestsCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        interestsCollectionView.delegate = self
+        interestsCollectionView.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -80,8 +95,6 @@ class ProfileViewController: UIViewController {
     fileprivate func setupUI() {
         view.backgroundColor = .carolinaBlue
         roundCorners()
-        title = "Profile"
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     fileprivate func setupLayout() {
@@ -98,21 +111,24 @@ class ProfileViewController: UIViewController {
         profilePhotoImageView.centerXToSuperview()
         
         view.addSubview(bottomView)
-        bottomView.anchor(top: profilePhotoImageView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 32, left: 0, bottom: 0, right: 0))
+        bottomView.anchor(top: profilePhotoImageView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 32, left: 0, bottom: (tabBarController?.tabBar.frame.height)!, right: 0))
         
         view.addSubview(penButton)
-        penButton.anchor(top: view.topAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 32, left: 0, bottom: 0, right: 18), size: .init(width: 25, height: 25))
+        penButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 18), size: .init(width: 25, height: 25))
         
         bottomView.addSubview(nameLabel)
         nameLabel.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: penButton.leadingAnchor, padding: .init(top: 24, left: 24, bottom: 0, right: 16))
         
         bottomView.addSubview(infoLabel)
-        infoLabel.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: bottomView.centerXAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 4))
+        infoLabel.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 4))
         
         bottomView.addSubview(majorsLabel)
-        majorsLabel.anchor(top: infoLabel.topAnchor, leading: bottomView.centerXAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 0, left: 4, bottom: 0, right: 24))
+        majorsLabel.anchor(top: infoLabel.bottomAnchor, leading: infoLabel.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 24))
         
         bottomView.addSubview(myInterestsLabel)
-        myInterestsLabel.anchor(top: infoLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 24, left: 0, bottom: 0, right: 0))
+        myInterestsLabel.anchor(top: majorsLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 24, left: 0, bottom: 0, right: 0))
+        
+        bottomView.addSubview(interestsCollectionView)
+        interestsCollectionView.anchor(top: myInterestsLabel.bottomAnchor, leading: view.leadingAnchor, bottom: bottomView.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 12, left: 0, bottom: 12, right: 0))
     }
 }

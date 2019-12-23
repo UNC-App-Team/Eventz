@@ -9,6 +9,7 @@ target 'Eventz' do
   pod 'LBTATools'
   pod 'JGProgressHUD'
   pod 'IQKeyboardManagerSwift'
+  pod 'ColorThiefSwift'
 
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
