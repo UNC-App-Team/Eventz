@@ -85,18 +85,12 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         setupUI()
         setupLayout()
         setupNavBar()
-        setupNotificationObservers()
         setupRegistrationChecker()
         
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - UI Setup
@@ -133,32 +127,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    fileprivate func setupNotificationObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
     // MARK: - Selectors
-    
-    @objc fileprivate func handleKeyboardShow(notification: Notification) {
-        guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardFrame = value.cgRectValue
-        
-        // Calculate distance from botton of signUpButton to bottom of the screen
-        let bottomspace = view.frame.height - stackView.frame.origin.y - stackView.frame.height
-        
-        let difference = keyboardFrame.height - bottomspace
-        if difference > 0 {
-            view.transform = CGAffineTransform(translationX: 0, y: -difference - 12)
-        }
-    }
-    
-    @objc fileprivate func handleKeyboardHide() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.view.transform = .identity
-        })
-    }
     
     @objc fileprivate func signUpTapped() {
         let hud = JGProgressHUD(style: .dark, text: "Signing up")
@@ -184,10 +153,5 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         registrationChecker.lastName = lastNameTextField.text
         registrationChecker.email = emailTextField.text
         registrationChecker.password = passwordTextField.text
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        view.endEditing(true)
     }
 }
