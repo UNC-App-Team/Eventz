@@ -30,6 +30,7 @@ class TabController: UITabBarController {
         view.backgroundColor = .white
         tabBar.barTintColor = .white
         setupTabBar()
+        roundCorners()
     }
     
     // MARK: - Helper Functions
