@@ -35,6 +35,21 @@ class ProfileViewController: UIViewController {
         return v
     }()
     
+    fileprivate let nameLabel: UILabel = {
+        let l = UILabel(text: "Maria Snow", font: .systemFont(ofSize: 32, weight: .bold), textColor: .black, textAlignment: .left, numberOfLines: 1)
+        return l
+    }()
+    
+    fileprivate let infoLabel: UILabel = {
+        let l = UILabel(text: "San Francisco, CA \nUNC \n20 years", font: .systemFont(ofSize: 16, weight: .regular), textColor: .darkGray, textAlignment: .left, numberOfLines: 3)
+        return l
+    }()
+    
+    fileprivate let majorsLabel: UILabel = {
+        let l = UILabel(text: "Majors: \n- Anthropology \n- Computer Science", font: .systemFont(ofSize: 16, weight: .regular), textColor: .darkGray, textAlignment: .left, numberOfLines: 3)
+        return l
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -73,5 +88,14 @@ class ProfileViewController: UIViewController {
         
         view.addSubview(bottomView)
         bottomView.anchor(top: profilePhotoImageView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 50, left: 0, bottom: 0, right: 0))
+        
+        bottomView.addSubview(nameLabel)
+        nameLabel.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 24, left: 24, bottom: 0, right: 0))
+        
+        bottomView.addSubview(infoLabel)
+        infoLabel.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: bottomView.centerXAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 4))
+        
+        bottomView.addSubview(majorsLabel)
+        majorsLabel.anchor(top: infoLabel.topAnchor, leading: bottomView.centerXAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 0, left: 4, bottom: 0, right: 24))
     }
 }
