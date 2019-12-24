@@ -43,22 +43,45 @@ class ProfileViewController: UIViewController {
     }()
     
     fileprivate let nameLabel: UILabel = {
-        let l = UILabel(text: "Maria Snow", font: .systemFont(ofSize: 32, weight: .bold), textColor: .black, textAlignment: .left, numberOfLines: 0)
+        let l = UILabel(text: "Maria Snow", font: .systemFont(ofSize: 32, weight: .bold), textColor: .black, textAlignment: .left, numberOfLines: 1)
+        l.adjustsFontSizeToFitWidth = true
         return l
     }()
     
-    fileprivate let infoLabel: UILabel = {
-        let l = UILabel(text: "Hometown: San Francisco, CA \nCollege: UNC \nAge: 20", font: .systemFont(ofSize: 16, weight: .regular), textColor: .darkGray, textAlignment: .left, numberOfLines: 0)
+    fileprivate lazy var HOMETOWNLabel: UILabel = {
+        let l = makeLABEL(text: "Hometown")
         return l
     }()
     
-    fileprivate let majorsLabel: UILabel = {
-        let l = UILabel(text: "Majors: \n- Anthropology \n- Computer Science", font: .systemFont(ofSize: 16, weight: .regular), textColor: .darkGray, textAlignment: .left, numberOfLines: 0)
+    fileprivate lazy var hometownLabel: UILabel = {
+        let l = makeLabel(text: "San Francisco, CA")
         return l
+    }()
+    
+    fileprivate lazy var AGELabel: UILabel = {
+        let l = makeLABEL(text: "Age")
+        return l
+    }()
+    
+    fileprivate lazy var ageLabel: UILabel = {
+        let l = makeLabel(text: "20")
+        return l
+    }()
+    
+    fileprivate lazy var MAJORSLabel: UILabel = {
+        let text = majorsLabels.count <= 1 ? "Major" : "Majors"
+        let l = makeLABEL(text: text)
+        l.adjustsFontSizeToFitWidth = true
+        return l
+    }()
+    
+    fileprivate lazy var majorsLabels: [UILabel] = {
+        let labels = [makeLabel(text: "Computer Science")]
+        return labels
     }()
     
     fileprivate let myInterestsLabel: UILabel = {
-        let l = UILabel(text: "My Interests", font: .systemFont(ofSize: 26, weight: .medium), textColor: .carolinaBlue, textAlignment: .left, numberOfLines: 1)
+        let l = UILabel(text: "My Interests", font: .systemFont(ofSize: 24, weight: .medium), textColor: .black, textAlignment: .left, numberOfLines: 1)
         return l
     }()
     
@@ -117,18 +140,68 @@ class ProfileViewController: UIViewController {
         penButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 18), size: .init(width: 25, height: 25))
         
         bottomView.addSubview(nameLabel)
-        nameLabel.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: penButton.leadingAnchor, padding: .init(top: 24, left: 24, bottom: 0, right: 16))
+        nameLabel.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 24, left: 24, bottom: 0, right: 24))
+//        nameLabel.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
-        bottomView.addSubview(infoLabel)
-        infoLabel.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 4))
+        let hometownStackView = UIStackView(arrangedSubviews: [HOMETOWNLabel, hometownLabel])
+        hometownStackView.distribution = .fill
+        hometownStackView.spacing = 8
+        view.addSubview(hometownStackView)
+        hometownStackView.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: nameLabel.trailingAnchor, padding: .init(top: 32, left: 0, bottom: 0, right: 0))
         
-        bottomView.addSubview(majorsLabel)
-        majorsLabel.anchor(top: infoLabel.bottomAnchor, leading: infoLabel.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 24))
+        let divider1 = UIView(backgroundColor: .darkGray)
+        view.addSubview(divider1)
+        divider1.anchor(top: hometownStackView.bottomAnchor, leading: hometownStackView.leadingAnchor, bottom: nil, trailing: hometownStackView.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
+        divider1.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        
+        let ageStackView = UIStackView(arrangedSubviews: [AGELabel, ageLabel])
+        ageStackView.distribution = .fill
+        ageStackView.spacing = 8
+        view.addSubview(ageStackView)
+        ageStackView.anchor(top: divider1.bottomAnchor, leading: divider1.leadingAnchor, bottom: nil, trailing: divider1.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
+        
+        let divider2 = UIView(backgroundColor: .darkGray)
+        view.addSubview(divider2)
+        divider2.anchor(top: ageStackView.bottomAnchor, leading: ageStackView.leadingAnchor, bottom: nil, trailing: ageStackView.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
+        divider2.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        
+        let majorsStackView = UIStackView(arrangedSubviews: majorsLabels)
+        majorsStackView.axis = .vertical
+        majorsStackView.distribution = .fillEqually
+        majorsStackView.spacing = 2
+        
+        let MAJORSStackView = UIStackView(arrangedSubviews: [MAJORSLabel, majorsStackView])
+        MAJORSStackView.distribution = .fill
+        MAJORSStackView.spacing = 8
+        view.addSubview(MAJORSStackView)
+        MAJORSStackView.anchor(top: divider2.bottomAnchor, leading: divider2.leadingAnchor, bottom: nil, trailing: divider2.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
         
         bottomView.addSubview(myInterestsLabel)
-        myInterestsLabel.anchor(top: majorsLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 24, left: 0, bottom: 0, right: 0))
+        myInterestsLabel.anchor(top: MAJORSStackView.bottomAnchor, leading: MAJORSStackView.leadingAnchor, bottom: nil, trailing: MAJORSStackView.trailingAnchor, padding: .init(top: 32, left: 0, bottom: 0, right: 0))
+        myInterestsLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+//        myInterestsLabel.backgroundColor = .orange
         
         bottomView.addSubview(interestsCollectionView)
-        interestsCollectionView.anchor(top: myInterestsLabel.bottomAnchor, leading: view.leadingAnchor, bottom: bottomView.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 12, left: 0, bottom: 12, right: 0))
+        interestsCollectionView.anchor(top: myInterestsLabel.bottomAnchor, leading: view.leadingAnchor, bottom: bottomView.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 12, right: 0))
+//        interestsCollectionView.heightAnchor.constraint(equalTo: bottomView.heightAnchor, multiplier: 0.30).isActive = true
+    }
+    
+    // MARK: - Helper functions
+    
+    fileprivate func makeLABEL(text: String) -> UILabel {
+        let l = UILabel(text: "\(text)", font: .systemFont(ofSize: 18, weight: .regular), textColor: .black, textAlignment: .left, numberOfLines: 0)
+        l.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        l.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        return l
+    }
+    
+    fileprivate func makeLabel(text: String) -> UILabel {
+        let l = UILabel(text: "\(text)", font: .systemFont(ofSize: 20, weight: .semibold), textColor: .carolinaBlue, textAlignment: .right, numberOfLines: 1)
+        l.adjustsFontSizeToFitWidth = true
+        l.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        l.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        return l
     }
 }

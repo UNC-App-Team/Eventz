@@ -36,6 +36,8 @@
 		50F6723123B14C4700E5ACF6 /* ProfileVC +CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723023B14C4600E5ACF6 /* ProfileVC +CollectionView.swift */; };
 		50F6723523B151D300E5ACF6 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723423B151D300E5ACF6 /* ProfileVC.swift */; };
 		50F6723723B153A600E5ACF6 /* MyInterestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723623B153A600E5ACF6 /* MyInterestsCell.swift */; };
+		50F6723E23B243C300E5ACF6 /* AKTextUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723C23B243C200E5ACF6 /* AKTextUtilities.swift */; };
+		50F6723F23B243C300E5ACF6 /* AKTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723D23B243C300E5ACF6 /* AKTextView.swift */; };
 		84D27644C3FECDF8C79D1D1A /* Pods_Eventz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		50F6723023B14C4600E5ACF6 /* ProfileVC +CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC +CollectionView.swift"; sourceTree = "<group>"; };
 		50F6723423B151D300E5ACF6 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		50F6723623B153A600E5ACF6 /* MyInterestsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInterestsCell.swift; sourceTree = "<group>"; };
+		50F6723C23B243C200E5ACF6 /* AKTextUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKTextUtilities.swift; sourceTree = "<group>"; };
+		50F6723D23B243C300E5ACF6 /* AKTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKTextView.swift; sourceTree = "<group>"; };
 		6830968D7F4535428791AD7E /* Pods-Eventz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventz.release.xcconfig"; path = "Target Support Files/Pods-Eventz/Pods-Eventz.release.xcconfig"; sourceTree = "<group>"; };
 		DCBB19C32EDACE928E042314 /* Pods_Eventz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -171,6 +175,8 @@
 				50C02049237DE7E6004CE4FA /* Services */,
 				50F0D2DF2373DAC8002985DA /* Constants.swift */,
 				50F0D2E12373DEF6002985DA /* Extensions.swift */,
+				50F6723C23B243C200E5ACF6 /* AKTextUtilities.swift */,
+				50F6723D23B243C300E5ACF6 /* AKTextView.swift */,
 				50F0D2D22373C1F8002985DA /* Assets.xcassets */,
 				50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */,
 				50F0D2D72373C1F8002985DA /* Info.plist */,
@@ -334,6 +340,7 @@
 				50F6722D23B1431A00E5ACF6 /* MyInterestsCollectionView.swift in Sources */,
 				5090566723AFEDEA000792C2 /* RegistrationChecker.swift in Sources */,
 				50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */,
+				50F6723E23B243C300E5ACF6 /* AKTextUtilities.swift in Sources */,
 				507BE0DA23A366FE009B7B72 /* TabC.swift in Sources */,
 				383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */,
 				50F6723123B14C4700E5ACF6 /* ProfileVC +CollectionView.swift in Sources */,
@@ -357,6 +364,7 @@
 				507BE0E223A57D57009B7B72 /* Dump.swift in Sources */,
 				5056FE5C23A605F00000EA2E /* WelcomeVC +CollectionView.swift in Sources */,
 				50C0204D237DEBB5004CE4FA /* User.swift in Sources */,
+				50F6723F23B243C300E5ACF6 /* AKTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
