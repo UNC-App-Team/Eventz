@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
     
     fileprivate let bottomView: UIView = {
         let v = UIView(backgroundColor: .white)
-        v.layer.cornerRadius = 36
+        v.layer.cornerRadius = 24
         v.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         v.setupShadow(opacity: 0.8, radius: 4, offset: .init(width: 4, height: 4), color: .black)
         return v
@@ -192,7 +192,7 @@ class ProfileViewController: UIViewController {
 //        myInterestsLabel.backgroundColor = .orange
         
         bottomView.addSubview(interestsCollectionView)
-        interestsCollectionView.anchor(top: myInterestsLabel.bottomAnchor, leading: view.leadingAnchor, bottom: bottomView.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 12, right: 0))
+        interestsCollectionView.anchor(top: myInterestsLabel.bottomAnchor, leading: bottomView.leadingAnchor, bottom: bottomView.bottomAnchor, trailing: bottomView.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 12, right: 0))
 //        interestsCollectionView.heightAnchor.constraint(equalTo: bottomView.heightAnchor, multiplier: 0.30).isActive = true
     }
     
