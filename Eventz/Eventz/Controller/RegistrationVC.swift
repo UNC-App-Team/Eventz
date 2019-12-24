@@ -81,6 +81,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     let auth = AuthService.shared
+    let firestore = FirestoreService.shared
     var registrationChecker = RegistrationChecker()
     
     // MARK: - Lifecycle
@@ -131,10 +132,18 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Selectors
     
     @objc fileprivate func signUpTapped() {
+        
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text,
+            let firstName = firstNameTextField.text,
+            let lastName = lastNameTextField.text
+        else { return }
+        
         let hud = JGProgressHUD(style: .dark, text: "Signing up")
         hud.show(in: self.view)
         
-        auth.signUp(withEmail: emailTextField.text!, password: passwordTextField.text!) { (_, error) in
+        auth.signUp(withEmail: email, password: password) { [unowned self] (result, error) in
             
             if let err = error {
                 hud.dismiss()
@@ -143,13 +152,21 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(ok)
                 self.present(alert, animated: true)
             } else {
+                let user = result?.user
+                let userId = user?.uid ?? UUID().uuidString
+                
+                var newUser = User(id: userId, firstName: firstName, lastName: lastName, age: nil, hometown: nil, profilePicURL: nil, interests: nil)
+                self.firestore.createUser(user: newUser)
+                
+                let changeRequest = user?.createProfileChangeRequest()
+                changeRequest?.displayName = newUser.displayName
+                
+                changeRequest?.commitChanges(completion: { (_) in
+                    print(user?.displayName ?? "No Display Name")
+                })
+                
                 hud.dismiss()
-                
-                guard let loginVC = self.presentingViewController as? LoginViewController else { return }
-                loginVC.returningFromSignUp = true
-                
                 self.dismiss(animated: true)
-                
             }
         }
     }

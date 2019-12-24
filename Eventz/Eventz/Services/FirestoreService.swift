@@ -12,8 +12,8 @@ class FirestoreService {
     
     private init() {}
     
-    let eventsRef = Firestore.firestore().collection("events")
-    let usersRed = Firestore.firestore().collection("users")
+    let eventsRef = Firestore.firestore().collection(EVENTS_REF)
+    let usersRef = Firestore.firestore().collection(USERS_REF)
     
     static let shared = FirestoreService()
     
@@ -89,5 +89,24 @@ class FirestoreService {
             "imageURL" : event.imageURL ?? "",
             "organizerId" : AuthService.shared.getCurrentUserId() ?? ""
         ])
+    }
+    
+    func createUser(user: User) {
+        
+        usersRef.document(user.id).setData([
+            
+            "id" : user.id,
+            "dateJoined" : FieldValue.serverTimestamp(),
+            "firstName" : user.firstName,
+            "lastName" : user.lastName,
+            "age" : user.age,
+            "hometown" : user.hometown
+            
+        ]) { (error) in
+            if let err = error {
+                debugPrint("Error creating user: \(err.localizedDescription)")
+            }
+        }
+        
     }
 }

@@ -9,4 +9,5 @@
 import Foundation
 import UIKit
 
-
+let EVENTS_REF = "events"
+let USERS_REF = "users"
