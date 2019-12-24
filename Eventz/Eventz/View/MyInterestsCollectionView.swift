@@ -16,11 +16,13 @@ protocol MyInterestsCollectionViewDelegate {
 
 class MyInterestsCollectionView: UICollectionView {
     
-    let interests: [(image: UIImage, title: String)] = [
-        (UIImage(named: "money")!, "Finance"),
-        (UIImage(named: "interestImage")!, "Social Justice"),
-        (UIImage(named: "law")!, "Biology"),
-        (UIImage(named: "running")!, "Free Food")
+    let interests: [(colors: (UIColor, UIColor), title: String)] = [
+        ((.systemTeal, .systemBlue), "Finance"),
+        ((.systemRed, .systemYellow), "Computer Science"),
+        ((.systemPink, .systemPurple), "Food"),
+        ((.systemBlue, .systemTeal), "Business"),
+        ((.systemYellow, .systemRed), "Social Justice"),
+        ((.systemPurple, .systemPink), "Sports")
     ]
     
     let inset: CGFloat = 6
