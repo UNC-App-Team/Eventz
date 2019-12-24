@@ -48,6 +48,12 @@ class ProfileViewController: UIViewController {
         return l
     }()
     
+    fileprivate let emailLabel: UILabel = {
+        let l = UILabel(text: "msnow21@live.unc.edu", font: .systemFont(ofSize: 18, weight: .regular), textColor: .darkGray, textAlignment: .left, numberOfLines: 1)
+        l.adjustsFontSizeToFitWidth = true
+        return l
+    }()
+    
     fileprivate lazy var HOMETOWNLabel: UILabel = {
         let l = makeLABEL(text: "Hometown")
         return l
@@ -141,13 +147,15 @@ class ProfileViewController: UIViewController {
         
         bottomView.addSubview(nameLabel)
         nameLabel.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 24, left: 24, bottom: 0, right: 24))
-//        nameLabel.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        
+        bottomView.addSubview(emailLabel)
+        emailLabel.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 24))
         
         let hometownStackView = UIStackView(arrangedSubviews: [HOMETOWNLabel, hometownLabel])
         hometownStackView.distribution = .fill
         hometownStackView.spacing = 8
         view.addSubview(hometownStackView)
-        hometownStackView.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, bottom: nil, trailing: nameLabel.trailingAnchor, padding: .init(top: 32, left: 0, bottom: 0, right: 0))
+        hometownStackView.anchor(top: emailLabel.bottomAnchor, leading: emailLabel.leadingAnchor, bottom: nil, trailing: emailLabel.trailingAnchor, padding: .init(top: 32, left: 0, bottom: 0, right: 0))
         
         let divider1 = UIView(backgroundColor: .darkGray)
         view.addSubview(divider1)

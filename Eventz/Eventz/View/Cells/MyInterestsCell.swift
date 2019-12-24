@@ -16,14 +16,13 @@ class MyInterestsCell: UICollectionViewCell {
     fileprivate let backgroundGradient: CAGradientLayer = {
         let l = CAGradientLayer()
         l.locations = [0.0, 1.0]
-        l.startPoint = CGPoint(x: 0.5, y: 0.5)
+        l.startPoint = CGPoint(x: 0, y: 0)
         l.endPoint = CGPoint(x: 1, y: 1)
         l.colors = [UIColor.systemBlue.cgColor, UIColor.systemTeal.cgColor]
         return l
     }()
     
     // makes the background image darker, and text more legible
-    
     fileprivate lazy var backgroundOverlay: UIView = {
         let v = UIView(backgroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.2991224315))
         return v

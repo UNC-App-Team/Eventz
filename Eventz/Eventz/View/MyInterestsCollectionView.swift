@@ -20,9 +20,9 @@ class MyInterestsCollectionView: UICollectionView {
         ((.systemTeal, .systemBlue), "Finance"),
         ((.systemRed, .systemYellow), "Computer Science"),
         ((.systemPink, .systemPurple), "Food"),
-        ((.systemBlue, .systemTeal), "Business"),
+        ((.systemBlue, .systemTeal), "Sports"),
         ((.systemYellow, .systemRed), "Social Justice"),
-        ((.systemPurple, .systemPink), "Sports")
+        ((.systemPurple, .systemPink), "Free Swag")
     ]
     
     let inset: CGFloat = 6
