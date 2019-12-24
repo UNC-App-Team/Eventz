@@ -18,11 +18,13 @@ struct Event {
     var description: String?
     var date: Date
     var location: String
+    
+    var interests: [String]
+    
     var imageURL: String?
     
     var organizerId: String
     
     // ???
-//    var tags: [String]
 //    var attendeeIds: [String]
 }

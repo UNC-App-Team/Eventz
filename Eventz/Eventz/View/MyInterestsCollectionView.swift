@@ -17,12 +17,12 @@ protocol MyInterestsCollectionViewDelegate {
 class MyInterestsCollectionView: UICollectionView {
     
     let interests: [(colors: (UIColor, UIColor), title: String)] = [
-        ((.systemTeal, .systemBlue), "Finance"),
-        ((.systemRed, .systemYellow), "Computer Science"),
+        ((.systemTeal, .systemBlue), "Science"),
+        ((.systemRed, .systemYellow), "Visual Arts"),
         ((.systemPink, .systemPurple), "Food"),
         ((.systemBlue, .systemTeal), "Sports"),
         ((.systemYellow, .systemRed), "Social Justice"),
-        ((.systemPurple, .systemPink), "Free Things")
+        ((.systemPurple, .systemPink), "Music")
     ]
     
     let inset: CGFloat = 6
