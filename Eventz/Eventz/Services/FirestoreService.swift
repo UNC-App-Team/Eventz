@@ -101,6 +101,7 @@ class FirestoreService {
             "dateJoined" : FieldValue.serverTimestamp(),
             "firstName" : user.firstName,
             "lastName" : user.lastName,
+            "email" : user.email,
             "age" : user.age,
             "hometown" : user.hometown
             

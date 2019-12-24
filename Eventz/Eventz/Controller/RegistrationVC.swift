@@ -155,15 +155,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 let user = result?.user
                 let userId = user?.uid ?? UUID().uuidString
                 
-                var newUser = User(id: userId, firstName: firstName, lastName: lastName, age: nil, hometown: nil, profilePicURL: nil, interests: nil)
+                var newUser = User(id: userId, firstName: firstName, lastName: lastName, email: email, age: nil, hometown: nil, profilePicURL: nil, interests: nil)
                 self.firestore.createUser(user: newUser)
                 
                 let changeRequest = user?.createProfileChangeRequest()
                 changeRequest?.displayName = newUser.displayName
                 
-                changeRequest?.commitChanges(completion: { (_) in
-                    print(user?.displayName ?? "No Display Name")
-                })
+                changeRequest?.commitChanges(completion: nil)
                 
                 hud.dismiss()
                 self.dismiss(animated: true)

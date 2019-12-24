@@ -15,6 +15,7 @@ struct User {
     var id: String
     var firstName: String
     var lastName: String
+    var email: String
     var age: Int
     var hometown: String
     
@@ -26,10 +27,11 @@ struct User {
 //    var interests: [String?]?
     
     // MARK: - Init
-    init(id: String, firstName: String?, lastName: String?, age: Int?, hometown: String?, profilePicURL: String?, interests: [String?]?) {
+    init(id: String, firstName: String?, lastName: String?, email: String?, age: Int?, hometown: String?, profilePicURL: String?, interests: [String?]?) {
         self.id = id
         self.firstName = firstName ?? "firstName"
         self.lastName = lastName ?? "lastName"
+        self.email = email ?? "email"
         self.age = age ?? -1
         self.hometown = hometown ?? "Unknown"
 //        self.profilePicURL = profilePicURL
