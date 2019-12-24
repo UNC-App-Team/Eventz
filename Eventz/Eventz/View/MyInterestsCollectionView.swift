@@ -22,7 +22,7 @@ class MyInterestsCollectionView: UICollectionView {
         ((.systemPink, .systemPurple), "Food"),
         ((.systemBlue, .systemTeal), "Sports"),
         ((.systemYellow, .systemRed), "Social Justice"),
-        ((.systemPurple, .systemPink), "Free Swag")
+        ((.systemPurple, .systemPink), "Free Things")
     ]
     
     let inset: CGFloat = 6

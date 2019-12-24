@@ -116,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */,
-				507BE0DF23A372E4009B7B72 /* EventCellView.swift */,
 				50F6722C23B1431A00E5ACF6 /* MyInterestsCollectionView.swift */,
 				50F6723323B14EBA00E5ACF6 /* Cells */,
 			);
@@ -198,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				507BE0DD23A36FD9009B7B72 /* EventCell.swift */,
+				507BE0DF23A372E4009B7B72 /* EventCellView.swift */,
 				507BE0E723A58C45009B7B72 /* WelcomePageCell.swift */,
 				5056FE5D23A6318B0000EA2E /* GetStartedPageCell.swift */,
 				50F6723623B153A600E5ACF6 /* MyInterestsCell.swift */,
