@@ -33,12 +33,14 @@ class FirestoreService {
                     let title = document["title"] as? String ?? ""
                     let category = document["category"] as? String ?? ""
                     
+                    let location = document["location"] as? String ?? ""
+                    
                     let description = document["description"] as? String ?? ""
                     let imageURL = document["imageURL"] as? String ?? ""
                     
                     let organizerId = document["organizerId"] as? String ?? ""
                     
-                    let event = Event(id: id, title: title, category: category, description: description, date: Date(), location: "location", imageURL: imageURL, organizerId: organizerId)
+                    let event = Event(id: id, title: title, category: category, description: description, date: Date(), location: location, imageURL: imageURL, organizerId: organizerId)
                     
                     events.append(event)
                 }

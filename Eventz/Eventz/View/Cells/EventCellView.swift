@@ -20,7 +20,7 @@ class EventCellView: UIView {
     }()
     
     // makes the background image darker, and text more legible
-    fileprivate let backgroundOverlay1: CAGradientLayer = {
+    fileprivate let backgroundGradient1: CAGradientLayer = {
         let l = CAGradientLayer()
         l.colors = [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor, #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor]
         l.locations = [0.0, 1.0]
@@ -29,9 +29,9 @@ class EventCellView: UIView {
        return l
     }()
     
-    fileprivate let backgroundOverlay2: CAGradientLayer = {
+    fileprivate let backgroundGradient2: CAGradientLayer = {
         let l = CAGradientLayer()
-        l.colors = [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor, #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor]
+        l.colors = [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor]
         l.locations = [0.0, 1.0]
         l.startPoint = CGPoint(x: 0.5, y: 1)
         l.endPoint = CGPoint(x: 0.5, y: 0.5)
@@ -89,9 +89,11 @@ class EventCellView: UIView {
     func configure(event: Event) {
         
         backgroundImage.image = UIImage(named: event.imageURL ?? "")
-        // backgroundImage.image = #imageLiteral(resourceName: "concert")
         titleLabel.text = event.title
         categoryLabel.text = event.category
+        
+//        dateLabel.text = event.date.description
+        locationLabel.text = event.location
     }
     
     // MARK: - UI Setup
@@ -104,10 +106,10 @@ class EventCellView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundOverlay1.frame = bounds
-        layer.insertSublayer(backgroundOverlay1, at: 1)
-        backgroundOverlay2.frame = bounds
-        layer.insertSublayer(backgroundOverlay2, at: 1)
+        backgroundGradient1.frame = bounds
+        layer.insertSublayer(backgroundGradient1, at: 1)
+        backgroundGradient2.frame = bounds
+        layer.insertSublayer(backgroundGradient2, at: 1)
     }
     
     fileprivate func setupLayout() {
