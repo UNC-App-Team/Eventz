@@ -32,6 +32,9 @@ class MyInterestsCollectionView: UICollectionView {
         
         backgroundColor = .white
         showsHorizontalScrollIndicator = false
+        
+        // not necessary, but just in case
+        showsVerticalScrollIndicator = false
     }
     
     required init?(coder: NSCoder) {
