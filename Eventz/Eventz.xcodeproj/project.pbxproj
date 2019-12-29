@@ -32,6 +32,8 @@
 		50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */; };
 		50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */; };
 		50F0DE0523AF72C4008E1B71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */; };
+		50F6515C23B8B7880035569E /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6515B23B8B7880035569E /* AccountView.swift */; };
+		50F6515E23B8C3EA0035569E /* ProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6515D23B8C3EA0035569E /* ProfileInfoView.swift */; };
 		50F6722D23B1431A00E5ACF6 /* MyInterestsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6722C23B1431A00E5ACF6 /* MyInterestsCollectionView.swift */; };
 		50F6723123B14C4700E5ACF6 /* ProfileVC +CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723023B14C4600E5ACF6 /* ProfileVC +CollectionView.swift */; };
 		50F6723523B151D300E5ACF6 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723423B151D300E5ACF6 /* ProfileVC.swift */; };
@@ -71,6 +73,8 @@
 		50F0DDFE23AEB4A4008E1B71 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		50F6515B23B8B7880035569E /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		50F6515D23B8C3EA0035569E /* ProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView.swift; sourceTree = "<group>"; };
 		50F6722C23B1431A00E5ACF6 /* MyInterestsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInterestsCollectionView.swift; sourceTree = "<group>"; };
 		50F6723023B14C4600E5ACF6 /* ProfileVC +CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC +CollectionView.swift"; sourceTree = "<group>"; };
 		50F6723423B151D300E5ACF6 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 			children = (
 				50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */,
 				50F6722C23B1431A00E5ACF6 /* MyInterestsCollectionView.swift */,
+				50F6515B23B8B7880035569E /* AccountView.swift */,
+				50F6515D23B8C3EA0035569E /* ProfileInfoView.swift */,
 				50F6723323B14EBA00E5ACF6 /* Cells */,
 			);
 			path = View;
@@ -351,6 +357,7 @@
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				50F6723523B151D300E5ACF6 /* ProfileVC.swift in Sources */,
+				50F6515E23B8C3EA0035569E /* ProfileInfoView.swift in Sources */,
 				50F6723723B153A600E5ACF6 /* MyInterestsCell.swift in Sources */,
 				5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */,
 				50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */,
@@ -364,6 +371,7 @@
 				507BE0DE23A36FD9009B7B72 /* EventCell.swift in Sources */,
 				50F0D2E02373DAC8002985DA /* Constants.swift in Sources */,
 				50C0204B237DEBAB004CE4FA /* Event.swift in Sources */,
+				50F6515C23B8B7880035569E /* AccountView.swift in Sources */,
 				50F0D2E22373DEF6002985DA /* Extensions.swift in Sources */,
 				507BE0E223A57D57009B7B72 /* Dump.swift in Sources */,
 				5056FE5C23A605F00000EA2E /* WelcomeVC +CollectionView.swift in Sources */,
