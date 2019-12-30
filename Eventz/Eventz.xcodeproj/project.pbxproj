@@ -11,6 +11,7 @@
 		5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056FE5823A5FA4E0000EA2E /* WelcomePage.swift */; };
 		5056FE5C23A605F00000EA2E /* WelcomeVC +CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056FE5B23A605F00000EA2E /* WelcomeVC +CollectionView.swift */; };
 		5056FE5E23A6318C0000EA2E /* GetStartedPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056FE5D23A6318B0000EA2E /* GetStartedPageCell.swift */; };
+		5067535523B97ABB00679F79 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067535423B97ABB00679F79 /* Injection.swift */; };
 		506B0EEC23B3B55200FE5982 /* SetupProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506B0EEB23B3B55200FE5982 /* SetupProfileVC.swift */; };
 		5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50701519239CE8C3006C7023 /* HomeVC.swift */; };
 		507BE0DA23A366FE009B7B72 /* TabC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BE0D923A366FE009B7B72 /* TabC.swift */; };
@@ -50,6 +51,7 @@
 		5056FE5823A5FA4E0000EA2E /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		5056FE5B23A605F00000EA2E /* WelcomeVC +CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeVC +CollectionView.swift"; sourceTree = "<group>"; };
 		5056FE5D23A6318B0000EA2E /* GetStartedPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetStartedPageCell.swift; path = Eventz/View/Cells/GetStartedPageCell.swift; sourceTree = SOURCE_ROOT; };
+		5067535423B97ABB00679F79 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		506B0EEB23B3B55200FE5982 /* SetupProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileVC.swift; sourceTree = "<group>"; };
 		50701519239CE8C3006C7023 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		507BE0D923A366FE009B7B72 /* TabC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabC.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */,
 				50F0D2D72373C1F8002985DA /* Info.plist */,
 				50F0D2D42373C1F8002985DA /* LaunchScreen.storyboard */,
+				5067535423B97ABB00679F79 /* Injection.swift */,
 			);
 			path = Eventz;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				50F6723523B151D300E5ACF6 /* ProfileVC.swift in Sources */,
 				50F6515E23B8C3EA0035569E /* ProfileInfoView.swift in Sources */,
 				50F6723723B153A600E5ACF6 /* MyInterestsCell.swift in Sources */,
+				5067535523B97ABB00679F79 /* Injection.swift in Sources */,
 				5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */,
 				50F0DDFF23AEB4A4008E1B71 /* AuthService.swift in Sources */,
 				507BE0E823A58C45009B7B72 /* WelcomePageCell.swift in Sources */,

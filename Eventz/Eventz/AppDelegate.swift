@@ -23,7 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 12
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
+        setupInjection()
+        
         return true
+    }
+    
+    fileprivate func setupInjection() {
+        #if DEBUG
+        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle")?.load()
+        //for tvOS:
+//        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/tvOSInjection.bundle")?.load()
+//        //Or for macOS:
+//        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection.bundle")?.load()
+        #endif
     }
 
     // MARK: UISceneSession Lifecycle
