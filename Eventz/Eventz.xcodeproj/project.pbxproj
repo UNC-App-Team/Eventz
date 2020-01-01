@@ -22,6 +22,7 @@
 		5090566723AFEDEA000792C2 /* RegistrationChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090566623AFEDEA000792C2 /* RegistrationChecker.swift */; };
 		5090566923B02050000792C2 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5090566823B02050000792C2 /* RegistrationVC.swift */; };
 		50AD3A3B23AA44A1005C4D3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */; };
+		50B9B0E223BB78C600819BEB /* ProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B9B0E123BB78C600819BEB /* ProfileInfoView.swift */; };
 		50C0204B237DEBAB004CE4FA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204A237DEBAB004CE4FA /* Event.swift */; };
 		50C0204D237DEBB5004CE4FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0204C237DEBB5004CE4FA /* User.swift */; };
 		50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0D2C92373C1F5002985DA /* AppDelegate.swift */; };
@@ -34,7 +35,6 @@
 		50F0DE0123AEB5A0008E1B71 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */; };
 		50F0DE0523AF72C4008E1B71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */; };
 		50F6515C23B8B7880035569E /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6515B23B8B7880035569E /* AccountView.swift */; };
-		50F6515E23B8C3EA0035569E /* ProfileInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6515D23B8C3EA0035569E /* ProfileInfoView.swift */; };
 		50F6722D23B1431A00E5ACF6 /* MyInterestsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6722C23B1431A00E5ACF6 /* MyInterestsCollectionView.swift */; };
 		50F6723123B14C4700E5ACF6 /* ProfileVC +CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723023B14C4600E5ACF6 /* ProfileVC +CollectionView.swift */; };
 		50F6723523B151D300E5ACF6 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F6723423B151D300E5ACF6 /* ProfileVC.swift */; };
@@ -62,6 +62,7 @@
 		5090566623AFEDEA000792C2 /* RegistrationChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationChecker.swift; sourceTree = "<group>"; };
 		5090566823B02050000792C2 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		50AD3A3A23AA44A1005C4D3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50B9B0E123BB78C600819BEB /* ProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView.swift; sourceTree = "<group>"; };
 		50C0204A237DEBAB004CE4FA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		50C0204C237DEBB5004CE4FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		50F0D2C62373C1F5002985DA /* Eventz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +77,6 @@
 		50F0DE0023AEB5A0008E1B71 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		50F6515B23B8B7880035569E /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		50F6515D23B8C3EA0035569E /* ProfileInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoView.swift; sourceTree = "<group>"; };
 		50F6722C23B1431A00E5ACF6 /* MyInterestsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInterestsCollectionView.swift; sourceTree = "<group>"; };
 		50F6723023B14C4600E5ACF6 /* ProfileVC +CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC +CollectionView.swift"; sourceTree = "<group>"; };
 		50F6723423B151D300E5ACF6 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 				50F0DE0423AF72C3008E1B71 /* CustomTextField.swift */,
 				50F6722C23B1431A00E5ACF6 /* MyInterestsCollectionView.swift */,
 				50F6515B23B8B7880035569E /* AccountView.swift */,
-				50F6515D23B8C3EA0035569E /* ProfileInfoView.swift */,
 				50F6723323B14EBA00E5ACF6 /* Cells */,
+				50B9B0E123BB78C600819BEB /* ProfileInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,10 +357,10 @@
 				383BD82A2373CBBA002A2715 /* LoginVC.swift in Sources */,
 				50F6723123B14C4700E5ACF6 /* ProfileVC +CollectionView.swift in Sources */,
 				506B0EEC23B3B55200FE5982 /* SetupProfileVC.swift in Sources */,
+				50B9B0E223BB78C600819BEB /* ProfileInfoView.swift in Sources */,
 				5070151A239CE8C3006C7023 /* HomeVC.swift in Sources */,
 				50F0D2CA2373C1F5002985DA /* AppDelegate.swift in Sources */,
 				50F6723523B151D300E5ACF6 /* ProfileVC.swift in Sources */,
-				50F6515E23B8C3EA0035569E /* ProfileInfoView.swift in Sources */,
 				50F6723723B153A600E5ACF6 /* MyInterestsCell.swift in Sources */,
 				5067535523B97ABB00679F79 /* Injection.swift in Sources */,
 				5056FE5923A5FA4E0000EA2E /* WelcomePage.swift in Sources */,

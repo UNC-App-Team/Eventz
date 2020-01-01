@@ -37,3 +37,29 @@ extension UIViewController {
     }
     #endif
 }
+
+extension UIView {
+    
+    #if DEBUG
+    @objc func injected() {
+        
+        for subview in self.subviews {
+            
+            for subsubview in subview.subviews {
+                
+                for subsubsubview in subsubview.subviews {
+                    subsubsubview.removeFromSuperview()
+                }
+                
+                subsubview.removeFromSuperview()
+            }
+            
+            subview.removeFromSuperview()
+        }
+        
+        layoutSubviews()
+        
+    }
+    #endif
+    
+}

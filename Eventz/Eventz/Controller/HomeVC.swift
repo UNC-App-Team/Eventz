@@ -68,6 +68,10 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         searchBar.delegate = self
         
+        do {
+            try auth.signOut()
+        } catch {}
+        
         firestore.fetchEvents(completion: { (events) in
             self.events = events
             

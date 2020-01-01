@@ -70,7 +70,7 @@ class AccountView: UIView {
         super.layoutSubviews()
         
         addSubview(profileImageBackground)
-        profileImageBackground.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: nil)
+        profileImageBackground.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: nil, padding: .init(top: 16, left: 0, bottom: 16, right: 0))
         profileImageBackground.widthAnchor.constraint(equalTo: profileImageBackground.heightAnchor).isActive = true
         profileImageBackground.layer.cornerRadius = frame.height / 2
         
