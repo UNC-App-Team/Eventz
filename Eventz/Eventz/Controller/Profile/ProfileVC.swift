@@ -126,6 +126,7 @@ class ProfileViewController: UIViewController {
         roundCorners()
     }
     
+    // swiftlint:disable:next function_body_length
     fileprivate func setupLayout() {
         view.addSubview(profilePhotoBackgroundView)
         profilePhotoBackgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true

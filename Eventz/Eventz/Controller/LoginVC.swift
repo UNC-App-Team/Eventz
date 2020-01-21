@@ -18,11 +18,11 @@ class LoginViewController: UIViewController {
     fileprivate let titleLabel: UILabel = {
         let labelText = NSMutableAttributedString()
         let firstString = NSMutableAttributedString(string: "Welcome to\n", attributes: [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 32, weight: .bold),
-            NSAttributedString.Key.foregroundColor : UIColor.white])
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 32, weight: .bold),
+            NSAttributedString.Key.foregroundColor: UIColor.white])
         let secondString = NSMutableAttributedString(string: "Eventz", attributes: [
-        NSAttributedString.Key.font : UIFont.systemFont(ofSize: 64, weight: .heavy),
-        NSAttributedString.Key.foregroundColor : UIColor.white])
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 64, weight: .heavy),
+        NSAttributedString.Key.foregroundColor: UIColor.white])
         
         let l = UILabel()
         labelText.append(firstString)
@@ -70,14 +70,14 @@ class LoginViewController: UIViewController {
         let b = UIButton()
         
         let labelString = NSMutableAttributedString(string: "No account yet?  ", attributes: [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .regular),
-            NSAttributedString.Key.foregroundColor : UIColor.white])
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular),
+            NSAttributedString.Key.foregroundColor: UIColor.white])
         
         labelString.append(NSMutableAttributedString(string: "Register.", attributes: [
-        NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .bold),
-        NSAttributedString.Key.foregroundColor : UIColor.white,
-        NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
-        NSAttributedString.Key.underlineColor : UIColor.carolinaBlue]))
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .bold),
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+        NSAttributedString.Key.underlineColor: UIColor.carolinaBlue]))
         
         b.setAttributedTitle(labelString, for: .normal)
         
@@ -110,7 +110,7 @@ class LoginViewController: UIViewController {
     
     @objc func forgotPasswordTapped() {
         
-        if let email = emailTextField.text , emailTextField.text != "" {
+        if let email = emailTextField.text, emailTextField.text != "" {
             auth.forgotPassword(forEmail: email)
             let alert = UIAlertController(title: "Password Reset Request", message: "Check your inbox for an email with instructions on how to reset your password.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -129,7 +129,7 @@ class LoginViewController: UIViewController {
         hud.textLabel.text = "Signing in"
         hud.show(in: self.view)
         
-        auth.signIn(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "") { (result, error) in
+        auth.signIn(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "") { (_, error) in
             if let err = error {
                 hud.dismiss()
                 let alert = UIAlertController(title: "Sign in failed", message: err.localizedDescription, preferredStyle: .alert)
@@ -144,9 +144,11 @@ class LoginViewController: UIViewController {
     }
     
     @objc func registerTapped() {
-        let registrationVC = RegistrationViewController()
-        registrationVC.modalPresentationStyle = .fullScreen
-        present(registrationVC, animated: true)
+//        let registrationVC = RegistrationViewController()
+//        navigationController?.pushViewController(registrationVC, animated: true)
+        
+        let setupProfileVC = SetupProfileViewController()
+        navigationController?.pushViewController(setupProfileVC, animated: true)
     }
     
     
@@ -154,6 +156,7 @@ class LoginViewController: UIViewController {
     // MARK: - UI Setup
     
     fileprivate func setupUI() {
+        navigationController?.isNavigationBarHidden = true
         view.backgroundColor = .darkGray
     }
     

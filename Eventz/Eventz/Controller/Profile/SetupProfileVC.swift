@@ -83,31 +83,27 @@ class SetupProfileViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
+//        profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
     }
     
     // MARK: - UI Setup
     
     fileprivate func setupUI() {
         
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .darkGray
     }
     
     fileprivate func setupLayout() {
         
-        view.addSubview(profilePhotoImageView)
-    profilePhotoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
-    profilePhotoImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20).isActive = true
-    profilePhotoImageView.widthAnchor.constraint(equalTo: profilePhotoImageView.heightAnchor).isActive = true
-        
-        profilePhotoImageView.centerXToSuperview()
-        
         stackView.axis = .vertical
         stackView.spacing = 16
+        ageTextField.clearButtonMode = .whileEditing
         view.addSubview(stackView)
-        stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 24, bottom: 0, right: 24))
+        stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 48, bottom: 0, right: 48))
         stackView.centerYToSuperview()
         
+//        profilePhotoImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        profilePhotoImageView.heightAnchor.constraint(equalTo: profilePhotoImageView.widthAnchor).isActive = true
     }
     
     

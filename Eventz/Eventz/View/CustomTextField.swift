@@ -17,7 +17,7 @@ class CustomTextField: UITextField {
         self.padding = padding
         super.init(frame: .zero)
         
-        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : placeholderColor, NSAttributedString.Key.font : placeholderFont])
+        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor, NSAttributedString.Key.font: placeholderFont])
         backgroundColor = .white
         self.textColor = textColor
         layer.cornerRadius = 25

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol WelcomePageCellDelegate {
+protocol WelcomePageCellDelegate: AnyObject {
     
     func handleGetStarted()
     
@@ -21,11 +21,11 @@ class WelcomePageCell: UICollectionViewCell {
     fileprivate let titleLabel: UILabel = {
         let labelText = NSMutableAttributedString()
         let firstString = NSMutableAttributedString(string: "Welcome to\n", attributes: [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 36, weight: .bold),
-            NSAttributedString.Key.foregroundColor : UIColor.white])
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: .bold),
+            NSAttributedString.Key.foregroundColor: UIColor.white])
         let secondString = NSMutableAttributedString(string: "Eventz", attributes: [
-        NSAttributedString.Key.font : UIFont.systemFont(ofSize: 72, weight: .heavy),
-        NSAttributedString.Key.foregroundColor : UIColor.white])
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 72, weight: .heavy),
+        NSAttributedString.Key.foregroundColor: UIColor.white])
         
         let l = UILabel()
         labelText.append(firstString)
@@ -65,7 +65,7 @@ class WelcomePageCell: UICollectionViewCell {
         return b
     }()
     
-    var delegate: WelcomePageCellDelegate?
+    weak var delegate: WelcomePageCellDelegate?
 
     // MARK: - Init
     

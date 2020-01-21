@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MyInterestsCollectionViewDelegate {
+protocol MyInterestsCollectionViewDelegate: AnyObject {
     
     func handleInterestTapped()
     

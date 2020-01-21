@@ -15,7 +15,7 @@ struct RegistrationChecker {
     var email: String? { didSet { checkFormValidity() }}
     var password: String? { didSet { checkFormValidity() }}
     
-    var observer: ((Bool) -> ())?
+    var observer: ((Bool) -> Void)?
     
     fileprivate func checkFormValidity() {
         var isFormValid = false

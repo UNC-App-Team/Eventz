@@ -3,7 +3,7 @@ import UIKit
 #endif
 
 @objc
-public enum VerticalAlignment : Int {
+public enum VerticalAlignment: Int {
   case top
   case center
   case bottom

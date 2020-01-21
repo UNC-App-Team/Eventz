@@ -89,13 +89,13 @@ class FirestoreService {
     func createEvent(event: Event) {
         
         eventsRef.addDocument(data: [
-            "id" : event.id,
-            "title" : event.title,
-            "category" : event.category,
-            "description" : event.description ?? "",
-            "interests" : event.interests,
-            "imageURL" : event.imageURL ?? "",
-            "organizerId" : AuthService.shared.getCurrentUserId() ?? ""
+            "id": event.id,
+            "title": event.title,
+            "category": event.category,
+            "description": event.description ?? "",
+            "interests": event.interests,
+            "imageURL": event.imageURL ?? "",
+            "organizerId": AuthService.shared.getCurrentUserId() ?? ""
         ])
     }
     
@@ -103,13 +103,13 @@ class FirestoreService {
         
         usersRef.document(user.id).setData([
             
-            "id" : user.id,
-            "dateJoined" : FieldValue.serverTimestamp(),
-            "firstName" : user.firstName,
-            "lastName" : user.lastName,
-            "email" : user.email,
-            "age" : user.age,
-            "hometown" : user.hometown
+            "id": user.id,
+            "dateJoined": FieldValue.serverTimestamp(),
+            "firstName": user.firstName,
+            "lastName": user.lastName,
+            "email": user.email,
+            "age": user.age,
+            "hometown": user.hometown
             
         ]) { (error) in
             if let err = error {

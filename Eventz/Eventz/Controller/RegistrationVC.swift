@@ -99,36 +99,6 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
     }
     
-    // MARK: - UI Setup
-    
-    fileprivate func setupUI() {
-        title = "Sign Up"
-        
-        view.backgroundColor = .darkGray
-    }
-    
-    fileprivate func setupLayout() {
-        
-        stackView.axis = .vertical
-        stackView.spacing = 16
-        stackView.setCustomSpacing(56, after: textLabel)
-        stackView.setCustomSpacing(8, after: firstNameTextField)
-        stackView.setCustomSpacing(8, after: emailTextField)
-        stackView.setCustomSpacing(24, after: passwordTextField)
-        view.addSubview(stackView)
-        stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 24, bottom: 0, right: 24))
-        stackView.centerYToSuperview()
-        
-        divider.heightAnchor.constraint(equalToConstant: 2).isActive = true
-    }
-    
-    fileprivate func setupRegistrationChecker() {
-        registrationChecker.observer = { [unowned self] (isValid) in
-            self.signUpButton.isEnabled = isValid
-            self.signUpButton.backgroundColor = isValid ? .carolinaBlue : .lightGray
-        }
-    }
-    
     // MARK: - Selectors
     
     @objc fileprivate func signUpTapped() {
@@ -170,7 +140,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc fileprivate func backToLoginTapped() {
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc fileprivate func handleTextChange() {
@@ -179,4 +149,35 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         registrationChecker.email = emailTextField.text
         registrationChecker.password = passwordTextField.text
     }
+    
+    // MARK: - UI Setup
+    
+    fileprivate func setupUI() {
+        title = "Sign Up"
+        
+        view.backgroundColor = .darkGray
+    }
+    
+    fileprivate func setupLayout() {
+        
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.setCustomSpacing(56, after: textLabel)
+        stackView.setCustomSpacing(8, after: firstNameTextField)
+        stackView.setCustomSpacing(8, after: emailTextField)
+        stackView.setCustomSpacing(24, after: passwordTextField)
+        view.addSubview(stackView)
+        stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 24, bottom: 0, right: 24))
+        stackView.centerYToSuperview()
+        
+        divider.heightAnchor.constraint(equalToConstant: 2).isActive = true
+    }
+    
+    fileprivate func setupRegistrationChecker() {
+        registrationChecker.observer = { [unowned self] (isValid) in
+            self.signUpButton.isEnabled = isValid
+            self.signUpButton.backgroundColor = isValid ? .carolinaBlue : .lightGray
+        }
+    }
+    
 }

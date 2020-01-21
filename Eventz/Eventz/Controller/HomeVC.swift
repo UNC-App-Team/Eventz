@@ -68,6 +68,10 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         searchBar.delegate = self
         
+        do {
+            try auth.signOut()
+        } catch {}
+        
         firestore.fetchEvents(completion: { (events) in
             self.events = events
             
@@ -81,8 +85,9 @@ class HomeViewController: UIViewController {
         
         if !auth.isLoggedIn() {
             let loginVC = LoginViewController()
-            loginVC.modalPresentationStyle = .fullScreen
-            navigationController?.present(loginVC, animated: false, completion: nil)
+            let loginNavC = UINavigationController(rootViewController: loginVC)
+            loginNavC.modalPresentationStyle = .fullScreen
+            navigationController?.present(loginNavC, animated: false, completion: nil)
         }
     }
     
@@ -108,7 +113,7 @@ class HomeViewController: UIViewController {
     fileprivate func setupLayout() {
         
         // Display noEventsLabel if no events in feed
-        if (events.isEmpty) {
+        if events.isEmpty {
             view.addSubview(noEventsLabel)
             noEventsLabel.centerInSuperview()
         } else {

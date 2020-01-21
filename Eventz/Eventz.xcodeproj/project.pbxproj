@@ -237,6 +237,7 @@
 				50F0D2C32373C1F5002985DA /* Frameworks */,
 				50F0D2C42373C1F5002985DA /* Resources */,
 				1701766C73AC8F8A2384B62F /* [CP] Embed Pods Frameworks */,
+				50C6327D23D73AC600B9F4B7 /* Run Script: SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -310,6 +311,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eventz/Pods-Eventz-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		50C6327D23D73AC600B9F4B7 /* Run Script: SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script: SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"warning: Swiftlint is not installed. Please install from https://github.com/realm/SwiftLint using HomeBrew\"\nfi\n";
 		};
 		EDB82EDD2D9B30A936BCD655 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

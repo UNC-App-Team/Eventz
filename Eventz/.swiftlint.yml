@@ -1,0 +1,16 @@
+excluded:
+- Pods
+- Eventz/AKTextUtilities.swift
+- Eventz/AKTextView.swift
+- Eventz/Dump.swift
+
+disabled_rules:
+- identifier_name
+- trailing_whitespace
+- vertical_whitespace
+- orphaned_doc_comment
+
+line_length:
+    warning: 250
+    error: 300
+
