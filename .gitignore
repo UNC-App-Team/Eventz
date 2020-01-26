@@ -38,5 +38,6 @@ playground.xcworkspace
 .build/
 
 iOSInjectionProject/
-Pods/
+Eventz/Pods
+Eventz/Podfile
 
